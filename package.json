@@ -1,0 +1,28 @@
+{
+  "name": "todo2",
+  "version": "1.0.0",
+  "description": "todo2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tony130891/TODO2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/tony130891/TODO2/issues"
+  },
+  "homepage": "https://github.com/tony130891/TODO2#readme",
+  "devDependencies": {
+    "css-loader": "7.1.4",
+    "html-webpack-plugin": "5.6.7",
+    "style-loader": "4.0.0",
+    "webpack": "5.107.2",
+    "webpack-cli": "7.0.3"
+  }
+}
