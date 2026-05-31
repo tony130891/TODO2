@@ -1,0 +1,65 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:focus {
+    outline: 2px solid black;
+}
+
+#todoDialog {
+    margin: auto;
+    box-sizing: border-box;
+}
+
+#todoDialog::backdrop {
+    background-color: hsl(0 0% 0% / .5);
+}
+
+
+.content {
+    width: 98%;
+    height: 98vh;
+    display: grid;
+    grid-template-columns: 210px 1fr;
+}
+
+.main {
+    border: 3px solid black;
+    background-color: rgba(255, 255, 255, 0.87);
+}
+
+.sidebar {
+    border: 3px solid black;
+    background-color: rgba(128, 128, 128, 0.918);
+}
+
+.form-group {
+    width: 281px;
+    height: 30px;
+}
+
+.svglow {
+  width: 24px;
+  height: 24px;
+  background-image: url('./assets/answers-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-size: contain;  
+}
+
+.svgmedium {
+  width: 24px;
+  height: 24px;
+  background-image: url('./assets/medium-priority-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-size: contain;  
+}
+
+.svghigh {
+  width: 24px;
+  height: 24px;
+  background-image: url('./assets/high-priority-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-size: contain;  
+}
