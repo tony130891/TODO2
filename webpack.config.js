@@ -14,6 +14,10 @@ export default {
             template: "./src/template.html",
         }),
     ],
+     devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+  },
     module: {
         rules: [
             {
