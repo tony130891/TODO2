@@ -1,9 +1,16 @@
 import { TaskCreator} from './taskCreator.js';
 import { taskVisualizer, taskArr, checkedbtn } from "./DOM.js";
 import "./styles.css";
+import labellow from "./low.svg";
+import labelhigh from "./high.svg";
+import medium from "./medium.svg";
 
-
-// TOFIX SVGLABELS
+const img = new Image();
+const img2 = new Image();
+const img3 = new Image();
+img.src = labellow;
+img2.src = medium;
+img3.src = labelhigh;
 
 
 const taskAdder = document.querySelector('.Today');

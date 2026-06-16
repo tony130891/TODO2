@@ -40,10 +40,10 @@
     height: 30px;
 }
 
-/*.svglow {
+.svglow {
   width: 24px;
   height: 24px;
-  background-image: url('./assets/answers-svgrepo-com.svg');
+  background-image: url("./low.svg");
   background-repeat: no-repeat;
   background-size: contain;  
 }
@@ -51,7 +51,7 @@
 .svgmedium {
   width: 24px;
   height: 24px;
-  background-image: url('./assets/medium-priority-svgrepo-com.svg');
+  background-image: url('./medium.svg');
   background-repeat: no-repeat;
   background-size: contain;  
 }
@@ -59,9 +59,7 @@
 .svghigh {
   width: 24px;
   height: 24px;
-  background-image: url('./assets/high-priority-svgrepo-com.svg');
+  background-image: url('./high.svg');
   background-repeat: no-repeat;
   background-size: contain;  
 }
-
-*/
