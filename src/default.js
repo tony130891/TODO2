@@ -1,21 +1,46 @@
-import { greeting } from './greeting.js';
-import printMe from "./greeting.js";
-
+import { taskCreator} from './taskCreator.js';
+import { taskVisualizer, taskArr } from "./DOM.js";
 import "./styles.css";
-// import img src create element class to import the svg files, restaurant
 
-console.log(greeting)
+const taskAdder = document.querySelector('.Today');
+const dialog = document.querySelector('#todoDialog');
+const closeDialog = dialog.querySelector('#close-dialog');
+const inputTitle = document.querySelector('#input-title');
+const inputDescription = document.querySelector('#input-description');
+const inputDuedate = document.querySelector('#input-duedate');
+const inputPriority = document.querySelectorAll("input[name='priority']");
+const inputPriorityLow = document.querySelector("#prioritylow");
+const inputPrioritymedium = document.querySelector("#prioritymedium");
+const inputPriorityhigh = document.querySelector("#priorityhigh");
+const submitBtn = document.querySelector("#todoForm");
+const main = document.querySelector('.main');
 
-function component() {
-   const element = document.createElement('div');
-    const btn = document.createElement('button');
 
-     btn.innerHTML = 'Click me and check the console!';
-     btn.onclick = printMe;
 
-     element.appendChild(btn);
+taskAdder.addEventListener('click', () => {
+ dialog.showModal(); 
+})
 
-     return element
- }
+closeDialog.addEventListener('click', () => {
+    dialog.close();
+})
 
- document.body.appendChild(component());
+submitBtn.addEventListener('submit', () => {
+
+    const checkedbtn = () => {
+        let selectedRadio = document.querySelector("input[name='priority']:checked");
+        return selectedRadio.value
+    }
+
+    inputPriority.forEach(radiobtn => {
+    radiobtn.addEventListener('change', checkedbtn)
+})
+  
+    const newTask = taskCreator(inputTitle.value, inputDescription.value, 'tomorrow', checkedbtn(), true, 'notyet');
+    taskArr.push(newTask);
+
+    inputTitle.value = '';
+    inputDescription.value = '';
+    console.log(taskArr);
+    taskVisualizer();
+})
