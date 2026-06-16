@@ -1,12 +1,12 @@
-export const taskCreator = (title, description, dueDate, priority, checklist, category) => {
-    return { 
-        title: title, 
-        description: description,
-        dueDate: dueDate,
-        priority: priority,
-        checklist: checklist,
-        category: category,
-     }
+export class TaskCreator {
+  constructor(title,description,dueDate,priority, checklist, category) 
+  {
+    this.title = title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.checklist = checklist;
+    this.category = category;
+  }
 }
-
 

@@ -1,19 +1,46 @@
+const inputTitle = document.querySelector('#input-title');
+const inputDescription = document.querySelector('#input-description');
+const inputDuedate = document.querySelector('#input-duedate');
+const inputPriority = document.querySelectorAll("input[name='priority']");
+
+
 const main = document.querySelector('.main');
 // render the task to the page
-export function taskVisualizer() {   
+
+class TaskCreator {
+  constructor(title,description,dueDate,priority, checklist, category) 
+  {
+    this.title = title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.checklist = checklist;
+    this.category = category;
+  }
+}
+
+ export const checkedbtn = () => {
+        let selectedRadio = document.querySelector("input[name='priority']:checked");
+        return selectedRadio.value
+    }
+
+export function taskVisualizer() { 
+
+    const newTask = new TaskCreator(inputTitle.value, inputDescription.value, 'tomorrow', checkedbtn(), true, 'notyet');
+    taskArr.push(newTask);
         
-    taskArr.forEach((task, index) => {
         const div = document.createElement('div');
         div.classList.add('project');
         main.appendChild(div);
 
         const h2 = document.createElement('h2');
-        h2.textContent = `${task.title}`
+        h2.textContent = `${newTask.title}`
         div.appendChild(h2);
 
         const para = document.createElement('p');
-        para.textContent = `${task.description}`;
+        para.textContent = `${newTask.description}`;
         h2.appendChild(para);
+
 
         const div1 = document.createElement('div');
         div1.classList.add('labels');
@@ -23,17 +50,15 @@ export function taskVisualizer() {
         const svglabel = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
         div1.appendChild(svglabel);
 
-        if(task.priority == 'low') {
+        if(newTask.priority == 'low') {
         svglabel.classList.add('svglow');
-    } else if (task.priority == 'medium') {
+    } else if (newTask.priority == 'medium') {
         svglabel.classList.add('svgmedium');
     } else {
         svglabel.classList.add('svghigh');
     }
     // add the duedate string along with a svg calendar
-    });
-
-    }
+    };
 
 
 export const taskArr = [];

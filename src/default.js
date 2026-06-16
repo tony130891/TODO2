@@ -1,6 +1,10 @@
-import { taskCreator} from './taskCreator.js';
-import { taskVisualizer, taskArr } from "./DOM.js";
+import { TaskCreator} from './taskCreator.js';
+import { taskVisualizer, taskArr, checkedbtn } from "./DOM.js";
 import "./styles.css";
+
+
+// TOFIX SVGLABELS
+
 
 const taskAdder = document.querySelector('.Today');
 const dialog = document.querySelector('#todoDialog');
@@ -27,20 +31,13 @@ closeDialog.addEventListener('click', () => {
 
 submitBtn.addEventListener('submit', () => {
 
-    const checkedbtn = () => {
-        let selectedRadio = document.querySelector("input[name='priority']:checked");
-        return selectedRadio.value
-    }
-
     inputPriority.forEach(radiobtn => {
     radiobtn.addEventListener('change', checkedbtn)
 })
   
-    const newTask = taskCreator(inputTitle.value, inputDescription.value, 'tomorrow', checkedbtn(), true, 'notyet');
-    taskArr.push(newTask);
-
-    inputTitle.value = '';
-    inputDescription.value = '';
-    console.log(taskArr);
+    const newTask = new TaskCreator(inputTitle.value, inputDescription.value, 'tomorrow', checkedbtn(), true, 'notyet');
+   // taskArr.push(newTask);
+    //console.log(taskArr);
     taskVisualizer();
+    console.log(taskArr);
 })
