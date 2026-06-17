@@ -4,6 +4,11 @@ import "./styles.css";
 import labellow from "./low.svg";
 import labelhigh from "./high.svg";
 import medium from "./medium.svg";
+import { format, formatDistance, subDays } from 'date-fns';
+
+console.log(format(new Date(), "'Today is' eeee"));
+console.log(formatDistance(subDays(new Date(), 1), new Date(), { addSuffix: true }));
+
 
 const img = new Image();
 const img2 = new Image();
@@ -42,9 +47,7 @@ submitBtn.addEventListener('submit', () => {
     radiobtn.addEventListener('change', checkedbtn)
 })
   
-    const newTask = new TaskCreator(inputTitle.value, inputDescription.value, 'tomorrow', checkedbtn(), true, 'notyet');
-   // taskArr.push(newTask);
-    //console.log(taskArr);
+    const newTask = new TaskCreator(inputTitle.value, inputDescription.value, inputDuedate.value, checkedbtn(), true, 'notyet');
     taskVisualizer();
     console.log(taskArr);
 })

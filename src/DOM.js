@@ -19,6 +19,8 @@ class TaskCreator {
   }
 }
 
+
+
  export const checkedbtn = () => {
         let selectedRadio = document.querySelector("input[name='priority']:checked");
         return selectedRadio.value
@@ -26,7 +28,7 @@ class TaskCreator {
 
 export function taskVisualizer() { 
 
-    const newTask = new TaskCreator(inputTitle.value, inputDescription.value, 'tomorrow', checkedbtn(), true, 'notyet');
+    const newTask = new TaskCreator(inputTitle.value, inputDescription.value, inputDuedate.value, checkedbtn(), true, 'notyet');
     taskArr.push(newTask);
         
         const div = document.createElement('div');
@@ -57,7 +59,14 @@ export function taskVisualizer() {
     } else {
         svglabel.classList.add('svghigh');
     }
-    // add the duedate string along with a svg calendar
+
+    // duedate text content should take the date from today and subtract the date given in the calendar,
+    // therefore, giving the x number of days lasted for the task to be done
+    const currentDate = new Date();
+    const duedate = document.createElement('p');
+    duedate.textContent = `${newTask["dueDate"]}`
+    h2.appendChild(duedate);
+
     };
 
 
