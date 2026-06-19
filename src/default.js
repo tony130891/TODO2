@@ -4,10 +4,6 @@ import "./styles.css";
 import labellow from "./low.svg";
 import labelhigh from "./high.svg";
 import medium from "./medium.svg";
-import { format, formatDistance, subDays } from 'date-fns';
-
-console.log(format(new Date(), "'Today is' eeee"));
-console.log(formatDistance(subDays(new Date(), 1), new Date(), { addSuffix: true }));
 
 
 const img = new Image();
