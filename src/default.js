@@ -14,7 +14,7 @@ img2.src = medium;
 img3.src = labelhigh;
 
 
-const taskAdder = document.querySelector('.Today');
+const taskAdder = document.querySelector('.today');
 const dialog = document.querySelector('#todoDialog');
 const closeDialog = dialog.querySelector('#close-dialog');
 const inputTitle = document.querySelector('#input-title');
@@ -47,3 +47,4 @@ submitBtn.addEventListener('submit', () => {
     taskVisualizer();
     console.log(taskArr);
 })
+
