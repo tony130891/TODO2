@@ -14,7 +14,7 @@ img2.src = medium;
 img3.src = labelhigh;
 
 
-const taskAdder = document.querySelector('.today');
+const taskAdder = document.querySelector('.addTask');
 const dialog = document.querySelector('#todoDialog');
 const closeDialog = dialog.querySelector('#close-dialog');
 const inputTitle = document.querySelector('#input-title');

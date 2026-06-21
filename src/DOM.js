@@ -8,7 +8,7 @@ const inputPriority = document.querySelectorAll("input[name='priority']");
 const main = document.querySelector('.main');
 // render the task to the page
 
-const currentDate = format(new Date(), "yyyy/MM/dd");
+const currentDate = format(new Date(), "yyyy-MM-dd");
 
 class TaskCreator {
   constructor(title,description,dueDate,priority, category) 
@@ -21,7 +21,6 @@ class TaskCreator {
     this.category = category;
   }
 }
-
 
 
  export const checkedbtn = () => {
@@ -63,10 +62,10 @@ export function taskVisualizer() {
         svglabel.classList.add('svghigh');
     }
 
-    // duedate text content should take the date from today and subtract the date given in the calendar,
-    // therefore, giving the x number of days lasted for the task to be done
+
+    const remainingDate = formatDistance(currentDate, inputDuedate.value);
     const duedate = document.createElement('p');
-    duedate.textContent = `${newTask["dueDate"]}`
+    duedate.textContent = `${remainingDate}`
     h2.appendChild(duedate);
 
     const taskDone = document.createElement('input');
@@ -77,10 +76,9 @@ export function taskVisualizer() {
     // TO-ADD: event listener to add the project into the category DONE
     taskDone.addEventListener('change', () => {
         newTask.checklist = true
-        console.log(newTask.checklist)
+
     })
 
-     console.log(newTask.checklist)
     };
 
 
