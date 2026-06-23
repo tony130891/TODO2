@@ -55,14 +55,6 @@ export function taskVisualizer() {
         const svglabel = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
         div1.appendChild(svglabel);
 
-        if(newTask.priority == 'low') {
-        svglabel.classList.add('svglow');
-    } else if (newTask.priority == 'medium') {
-        svglabel.classList.add('svgmedium');
-    } else {
-        svglabel.classList.add('svghigh');
-    }
-
 
     const remainingDate = formatDistance(currentDate, inputDuedate.value);
     const duedate = document.createElement('p');
@@ -77,6 +69,18 @@ export function taskVisualizer() {
     taskDone.type = 'checkbox';
     labelInput.classList.add('Btndone')
     labelInput.appendChild(taskDone)
+    // change btndone background color depending on the label used---go above to priority condition
+
+if(newTask.priority == 'low') {
+        svglabel.classList.add('svglow');
+        labelInput.style.backgroundColor = "#c2c2fb";
+    } else if (newTask.priority == 'medium') {
+        svglabel.classList.add('svgmedium');
+        labelInput.style.backgroundColor = "yellow";
+    } else {
+        svglabel.classList.add('svghigh');
+        labelInput.style.backgroundColor = "#ed4d4d";
+    }
 
     // TO-ADD: event listener to add the project into the category DONE
     taskDone.addEventListener('change', () => {

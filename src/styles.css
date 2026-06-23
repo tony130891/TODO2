@@ -86,20 +86,25 @@ li {
   background-size: contain;  
 }
 
-.Btndone {
+div > .Btndone {
 display: inline-block;
-  padding: 10px 20px;
-  border-color: blue;
-  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: red;
+  outline: 1px solid black;
+  border-radius: 15px;
   cursor: pointer;
   font-family: sans-serif;
   user-select: none;
   transition: background 0.2s ease;
+  border-radius: 50% ;
 }
 
-.Btndone input:checked {
-background-color: red;
-border-color: transparent;
+.Btndone input[type="checkbox"] {
+ padding: 5px 10px;
+  background-color: currentColor;
+  outline: 1px solid black;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 .project {
