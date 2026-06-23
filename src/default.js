@@ -28,7 +28,6 @@ const submitBtn = document.querySelector("#todoForm");
 const main = document.querySelector('.main');
 
 
-
 taskAdder.addEventListener('click', () => {
  dialog.showModal(); 
 })

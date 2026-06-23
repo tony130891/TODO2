@@ -69,10 +69,14 @@ export function taskVisualizer() {
     duedate.textContent = `${remainingDate}`
     div1.appendChild(duedate);
 
+    const divCheck = document.createElement('div');
+    para.appendChild(divCheck);
+    const labelInput = document.createElement('label');
+    divCheck.appendChild(labelInput);
     const taskDone = document.createElement('input');
     taskDone.type = 'checkbox';
-    taskDone.classList.add('Btndone')
-    para.appendChild(taskDone)
+    labelInput.classList.add('Btndone')
+    labelInput.appendChild(taskDone)
 
     // TO-ADD: event listener to add the project into the category DONE
     taskDone.addEventListener('change', () => {

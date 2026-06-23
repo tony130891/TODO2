@@ -89,13 +89,17 @@ li {
 .Btndone {
 display: inline-block;
   padding: 10px 20px;
-  background-color: #e0e0e0;
-  color: #333;
+  border-color: blue;
   border-radius: 5px;
   cursor: pointer;
   font-family: sans-serif;
   user-select: none;
   transition: background 0.2s ease;
+}
+
+.Btndone input:checked {
+background-color: red;
+border-color: transparent;
 }
 
 .project {
@@ -105,6 +109,9 @@ display: inline-block;
   gap: 10px;         
   cursor: pointer;  
   font-size: 16px;
+  margin: 12px;
+  border-bottom: 2px solid black;
+  padding-bottom: 5px;
 }
 
 .labels {
