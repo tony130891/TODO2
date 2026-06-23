@@ -87,7 +87,7 @@ li {
 }
 
 .Btndone {
-    display: inline-block;
+display: inline-block;
   padding: 10px 20px;
   background-color: #e0e0e0;
   color: #333;
@@ -96,4 +96,23 @@ li {
   font-family: sans-serif;
   user-select: none;
   transition: background 0.2s ease;
+}
+
+.project {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;         
+  cursor: pointer;  
+  font-size: 16px;
+}
+
+.labels {
+    display: flex;
+    gap: 5px;
+}
+
+.hiddenP {
+    gap: 25px;
+    display: flex;
 }

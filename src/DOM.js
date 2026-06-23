@@ -42,13 +42,14 @@ export function taskVisualizer() {
         div.appendChild(h2);
 
         const para = document.createElement('p');
+        para.classList.add('hiddenP')
         para.textContent = `${newTask.description}`;
         h2.appendChild(para);
 
 
         const div1 = document.createElement('div');
         div1.classList.add('labels');
-        para.appendChild(div1);    
+        h2.appendChild(div1);    
 
         
         const svglabel = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
@@ -66,12 +67,12 @@ export function taskVisualizer() {
     const remainingDate = formatDistance(currentDate, inputDuedate.value);
     const duedate = document.createElement('p');
     duedate.textContent = `${remainingDate}`
-    h2.appendChild(duedate);
+    div1.appendChild(duedate);
 
     const taskDone = document.createElement('input');
     taskDone.type = 'checkbox';
     taskDone.classList.add('Btndone')
-    div.appendChild(taskDone)
+    para.appendChild(taskDone)
 
     // TO-ADD: event listener to add the project into the category DONE
     taskDone.addEventListener('change', () => {
