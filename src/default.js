@@ -7,7 +7,7 @@ import medium from "./medium.svg";
 import { todayTasks } from "./today.js";
 import { tomorrowTasks } from "./tomorrow.js";
 import { soonTasks } from "./soon.js";
-import { doneTasks } from './done.js';
+import { doneTasks, taskVisualizerDone } from './done.js';
 
 const img = new Image();
 const img2 = new Image();
@@ -51,5 +51,6 @@ taskVisualizer();
 })
 
 doneTab.addEventListener('click', () => {
-    
+  main.replaceChildren();
+  taskVisualizerDone();
 })
