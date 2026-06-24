@@ -79,12 +79,16 @@ if(newTask.priority == 'low') {
 
     taskDone.addEventListener('change', () => {
         newTask.checklist = true
-        doneCount++
         for(let task of taskArr) {
-            if(task.checklist == true) {doneTasks.push(task)}
+            if(task.checklist == true) {
+                doneTasks.push(task)
+                // removing the div project AS SOON AS IS CLICKED
+                taskArr.splice(task, 1);
+            }
         }
     })
     
+    console.log(taskArr);
     };
 
 
