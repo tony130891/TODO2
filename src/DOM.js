@@ -1,26 +1,17 @@
 import { format, formatDistance, subDays } from 'date-fns';
+import { TaskCreator } from './taskCreator.js'
+import { todayTasks, todayCount } from "./today.js";
+import { tomorrowTasks, tomorrowCount } from "./tomorrow.js";
+import { soonTasks, soonCount } from "./soon.js";
+import { doneTasks, doneCount } from './done.js';
 
 const inputTitle = document.querySelector('#input-title');
 const inputDescription = document.querySelector('#input-description');
 const inputDuedate = document.querySelector('#input-duedate');
 const inputPriority = document.querySelectorAll("input[name='priority']");
-
 const main = document.querySelector('.main');
-// render the task to the page
 
 const currentDate = format(new Date(), "yyyy-MM-dd");
-
-class TaskCreator {
-  constructor(title,description,dueDate,priority, category) 
-  {
-    this.title = title;
-    this.description = description;
-    this.dueDate = dueDate;
-    this.priority = priority;
-    this.checklist = false;
-    this.category = category;
-  }
-}
 
 
  export const checkedbtn = () => {
@@ -69,7 +60,7 @@ export function taskVisualizer() {
     taskDone.type = 'checkbox';
     labelInput.classList.add('Btndone')
     labelInput.appendChild(taskDone)
-    // change btndone background color depending on the label used---go above to priority condition
+    // change btndone background color depending on the label used-
 
 if(newTask.priority == 'low') {
         svglabel.classList.add('svglow');
@@ -85,9 +76,9 @@ if(newTask.priority == 'low') {
     // TO-ADD: event listener to add the project into the category DONE
     taskDone.addEventListener('change', () => {
         newTask.checklist = true
-
+        doneCount++;
     })
-
+        console.log(doneCount);
     };
 
 

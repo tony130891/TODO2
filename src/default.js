@@ -4,7 +4,10 @@ import "./styles.css";
 import labellow from "./low.svg";
 import labelhigh from "./high.svg";
 import medium from "./medium.svg";
-
+import { todayTasks } from "./today.js";
+import { tomorrowTasks } from "./tomorrow.js";
+import { soonTasks } from "./soon.js";
+import { doneTasks, doneCount } from './done.js';
 
 const img = new Image();
 const img2 = new Image();
@@ -12,7 +15,6 @@ const img3 = new Image();
 img.src = labellow;
 img2.src = medium;
 img3.src = labelhigh;
-
 
 const taskAdder = document.querySelector('.addTask');
 const dialog = document.querySelector('#todoDialog');
@@ -26,7 +28,10 @@ const inputPrioritymedium = document.querySelector("#prioritymedium");
 const inputPriorityhigh = document.querySelector("#priorityhigh");
 const submitBtn = document.querySelector("#todoForm");
 const main = document.querySelector('.main');
-
+const todayTab = document.querySelector('.today');
+const tomorrowTab = document.querySelector('.tomorrow');
+const soonTab = document.querySelector('.soon');
+const doneTab = document.querySelector('.done');
 
 taskAdder.addEventListener('click', () => {
  dialog.showModal(); 
@@ -42,8 +47,7 @@ submitBtn.addEventListener('submit', () => {
     radiobtn.addEventListener('change', checkedbtn)
 })
   
-    const newTask = new TaskCreator(inputTitle.value, inputDescription.value, inputDuedate.value, checkedbtn(), true, 'notyet');
-    taskVisualizer();
-    console.log(taskArr);
+taskVisualizer();
+console.log(taskArr);
 })
 

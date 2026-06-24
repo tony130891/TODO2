@@ -112,7 +112,6 @@ display: inline-block;
   align-items: center;
   flex-direction: column;
   gap: 10px;         
-  cursor: pointer;  
   font-size: 16px;
   margin: 12px;
   border-bottom: 2px solid black;

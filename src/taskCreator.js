@@ -1,3 +1,8 @@
+import { todayTasks } from "./today.js";
+import { tomorrowTasks } from "./tomorrow.js";
+import { soonTasks } from "./soon.js";
+import { doneTasks, doneCount } from './done.js';
+
 export class TaskCreator {
   constructor(title,description,dueDate,priority, checklist, category) 
   {
@@ -5,8 +10,7 @@ export class TaskCreator {
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.checklist = checklist;
+    this.checklist = false;
     this.category = category;
   }
 }
-
