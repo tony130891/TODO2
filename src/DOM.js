@@ -1,17 +1,19 @@
 import { format, formatDistance, subDays } from 'date-fns';
 import { TaskCreator } from './taskCreator.js'
-import { todayTasks, todayCount } from "./today.js";
-import { tomorrowTasks, tomorrowCount } from "./tomorrow.js";
-import { soonTasks, soonCount } from "./soon.js";
-import { doneTasks, doneCount } from './done.js';
+import { todayTasks } from "./today.js";
+import { tomorrowTasks } from "./tomorrow.js";
+import { soonTasks } from "./soon.js";
+import { doneTasks } from './done.js';
 
 const inputTitle = document.querySelector('#input-title');
 const inputDescription = document.querySelector('#input-description');
 const inputDuedate = document.querySelector('#input-duedate');
 const inputPriority = document.querySelectorAll("input[name='priority']");
 const main = document.querySelector('.main');
+const doneTab = document.querySelector('.done');
 
 const currentDate = format(new Date(), "yyyy-MM-dd");
+export let doneCount = 0;
 
 
  export const checkedbtn = () => {
@@ -74,11 +76,15 @@ if(newTask.priority == 'low') {
     }
 
     // TO-ADD: event listener to add the project into the category DONE
+
     taskDone.addEventListener('change', () => {
         newTask.checklist = true
-        doneCount++;
+        doneCount++
+        for(let task of taskArr) {
+            if(task.checklist == true) {doneTasks.push(task)}
+        }
     })
-        console.log(doneCount);
+    
     };
 
 

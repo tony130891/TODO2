@@ -1,5 +1,5 @@
 import { TaskCreator} from './taskCreator.js';
-import { taskVisualizer, taskArr, checkedbtn } from "./DOM.js";
+import { taskVisualizer, taskArr, checkedbtn, doneCount } from "./DOM.js";
 import "./styles.css";
 import labellow from "./low.svg";
 import labelhigh from "./high.svg";
@@ -7,7 +7,7 @@ import medium from "./medium.svg";
 import { todayTasks } from "./today.js";
 import { tomorrowTasks } from "./tomorrow.js";
 import { soonTasks } from "./soon.js";
-import { doneTasks, doneCount } from './done.js';
+import { doneTasks } from './done.js';
 
 const img = new Image();
 const img2 = new Image();
@@ -48,6 +48,8 @@ submitBtn.addEventListener('submit', () => {
 })
   
 taskVisualizer();
-console.log(taskArr);
 })
 
+doneTab.addEventListener('click', () => {
+    
+})
