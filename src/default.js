@@ -51,6 +51,5 @@ taskVisualizer();
 })
 
 doneTab.addEventListener('click', () => {
-  main.replaceChildren();
   taskVisualizerDone();
 })

@@ -3,7 +3,7 @@ import { TaskCreator } from './taskCreator.js'
 import { todayTasks } from "./today.js";
 import { tomorrowTasks } from "./tomorrow.js";
 import { soonTasks } from "./soon.js";
-import { doneTasks } from './done.js';
+import { doneTasks, taskVisualizerDone } from './done.js';
 
 const inputTitle = document.querySelector('#input-title');
 const inputDescription = document.querySelector('#input-description');
@@ -21,13 +21,17 @@ export let doneCount = 0;
         return selectedRadio.value
     }
 
+export function taskRemover(task) {
+            
+        }
+
 export function taskVisualizer() { 
 
     const newTask = new TaskCreator(inputTitle.value, inputDescription.value, inputDuedate.value, checkedbtn(), 'notyet');
     taskArr.push(newTask);
         
         const div = document.createElement('div');
-        div.classList.add('project');
+        div.classList.add('project'); // TRY TO SET AN ATTRIBUTE SO IT CAN BE LINKED AND REMOVED LATER
         main.appendChild(div);
 
         const h2 = document.createElement('h2');
@@ -84,6 +88,7 @@ if(newTask.priority == 'low') {
                 doneTasks.push(task)
                 // removing the div project AS SOON AS IS CLICKED
                 taskArr.splice(task, 1);
+                taskRemover(task)
             }
         }
     })
