@@ -22,7 +22,8 @@ export let doneCount = 0;
     }
 
 export function taskRemover(task) {
-            
+            const divEl = document.querySelector(`[data-name="${task}"]`);
+            return divEl
         }
 
 export function taskVisualizer() { 
@@ -31,7 +32,8 @@ export function taskVisualizer() {
     taskArr.push(newTask);
         
         const div = document.createElement('div');
-        div.classList.add('project'); // TRY TO SET AN ATTRIBUTE SO IT CAN BE LINKED AND REMOVED LATER
+        div.classList.add('project');
+        div.setAttribute('data-name', newTask.title);
         main.appendChild(div);
 
         const h2 = document.createElement('h2');
@@ -66,7 +68,6 @@ export function taskVisualizer() {
     taskDone.type = 'checkbox';
     labelInput.classList.add('Btndone')
     labelInput.appendChild(taskDone)
-    // change btndone background color depending on the label used-
 
 if(newTask.priority == 'low') {
         svglabel.classList.add('svglow');
@@ -88,7 +89,8 @@ if(newTask.priority == 'low') {
                 doneTasks.push(task)
                 // removing the div project AS SOON AS IS CLICKED
                 taskArr.splice(task, 1);
-                taskRemover(task)
+                taskRemover(task.title)
+                console.log(taskRemover(task.title))
             }
         }
     })
