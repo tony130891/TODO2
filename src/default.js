@@ -51,5 +51,5 @@ taskVisualizer();
 })
 
 doneTab.addEventListener('click', () => {
-  taskVisualizerDone();
+    
 })

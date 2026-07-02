@@ -23,7 +23,7 @@ export let doneCount = 0;
 
 export function taskRemover(task) {
             const divEl = document.querySelector(`[data-name="${task}"]`);
-            return divEl
+            return divEl.remove()   
         }
 
 export function taskVisualizer() { 
@@ -80,22 +80,17 @@ if(newTask.priority == 'low') {
         labelInput.style.backgroundColor = "#ed4d4d";
     }
 
-    // TO-ADD: event listener to add the project into the category DONE
-
     taskDone.addEventListener('change', () => {
         newTask.checklist = true
         for(let task of taskArr) {
             if(task.checklist == true) {
                 doneTasks.push(task)
-                // removing the div project AS SOON AS IS CLICKED
-                taskArr.splice(task, 1);
                 taskRemover(task.title)
-                console.log(taskRemover(task.title))
+                taskArr.splice(task, 1);
             }
         }
     })
     
-    console.log(taskArr);
     };
 
 
