@@ -8,6 +8,7 @@ import { todayTasks } from "./today.js";
 import { tomorrowTasks } from "./tomorrow.js";
 import { soonTasks } from "./soon.js";
 import { doneTasks, taskVisualizerDone } from './done.js';
+import { firstLoad, pageloader } from './pageload.js';
 
 const img = new Image();
 const img2 = new Image();
@@ -28,10 +29,13 @@ const inputPrioritymedium = document.querySelector("#prioritymedium");
 const inputPriorityhigh = document.querySelector("#priorityhigh");
 const submitBtn = document.querySelector("#todoForm");
 const main = document.querySelector('.main');
+const homeTab = document.querySelector('.home');
 const todayTab = document.querySelector('.today');
 const tomorrowTab = document.querySelector('.tomorrow');
 const soonTab = document.querySelector('.soon');
 const doneTab = document.querySelector('.done');
+
+firstLoad(homeTab);
 
 taskAdder.addEventListener('click', () => {
  dialog.showModal(); 
@@ -50,6 +54,22 @@ submitBtn.addEventListener('submit', () => {
 taskVisualizer();
 })
 
+todayTab.addEventListener('click', () => {
+    pageloader(todayTab)
+})
+
 doneTab.addEventListener('click', () => {
-    
+    pageloader(doneTab);
+})
+
+tomorrowTab.addEventListener('click', () => {
+    pageloader(tomorrowTab);
+})
+
+soonTab.addEventListener('click', () => {
+    pageloader(soonTab);
+})
+
+homeTab.addEventListener('click', () => {
+    pageloader(homeTab);
 })

@@ -23,18 +23,22 @@
     height: 98vh;
     display: grid;
     grid-template-columns: 210px 1fr;
+    grid-template-rows:100px 1fr;
 }
 
 .main {
     border: 3px solid black;
     background-color: rgba(255, 255, 255, 0.87);
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
 }
 
 .sidebar {
     border: 3px solid black;
     background-color: rgba(128, 128, 128, 0.918);
     display: grid;
-    grid-template-rows: 220px 1fr;
+    grid-column: 1 / 1;
+    grid-row: 1 / 4;
 }
 
 a {
@@ -42,7 +46,7 @@ a {
     color: inherit;
 }
 
-li {
+ul > button {
     font-size: 22px;
     list-style-type: none;
     margin: 0;
@@ -126,4 +130,12 @@ display: inline-block;
 .hiddenP {
     gap: 25px;
     display: flex;
+}
+
+.title {
+    text-align: center;
+    font-size: 55px;
+    padding: 5px;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
 }
