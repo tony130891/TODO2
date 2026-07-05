@@ -60,6 +60,11 @@ export function taskVisualizer() {
     duedate.textContent = `${remainingDate}`
     div1.appendChild(duedate);
 
+    //TOADD: TAB
+    if(remainingDate.includes('minute')) {
+        todayTasks.push(newTask)            
+    }
+
     const divCheck = document.createElement('div');
     para.appendChild(divCheck);
     const labelInput = document.createElement('label');

@@ -57,10 +57,12 @@ taskVisualizer();
 
 todayTab.addEventListener('click', () => {
     pageloader(todayTab)
+    console.log(todayTasks)
 })
 
 doneTab.addEventListener('click', () => {
     pageloader(doneTab);
+    taskVisualizerDone()
 })
 
 tomorrowTab.addEventListener('click', () => {

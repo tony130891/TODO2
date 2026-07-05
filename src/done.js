@@ -20,6 +20,4 @@ export function taskVisualizerDone() {
         para.textContent = `${tasks.description}`;
         h2.appendChild(para);
         }
-        console.log(doneTasks)
-        console.log(taskArr)
 }
