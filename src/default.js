@@ -9,6 +9,7 @@ import { tomorrowTasks } from "./tomorrow.js";
 import { soonTasks } from "./soon.js";
 import { doneTasks, taskVisualizerDone } from './done.js';
 import { firstLoad, pageloader } from './pageload.js';
+import { tabVisualizer } from './home.js';
 
 const img = new Image();
 const img2 = new Image();
@@ -72,4 +73,6 @@ soonTab.addEventListener('click', () => {
 
 homeTab.addEventListener('click', () => {
     pageloader(homeTab);
+    tabVisualizer(taskArr);
+    console.log(taskArr)
 })
