@@ -20,6 +20,8 @@ img3.src = labelhigh;
 
 const taskAdder = document.querySelector('.addTask');
 const dialog = document.querySelector('#todoDialog');
+const submitsubmit = dialog.querySelector('#submit-task')
+const dialogContent = dialog.querySelector('.dialogContent');
 const closeDialog = dialog.querySelector('#close-dialog');
 const inputTitle = document.querySelector('#input-title');
 const inputDescription = document.querySelector('#input-description');
@@ -39,14 +41,14 @@ const doneTab = document.querySelector('.done');
 firstLoad(homeTab);
 
 taskAdder.addEventListener('click', () => {
- dialog.showModal(); 
+ dialog.showModal();
 })
 
 closeDialog.addEventListener('click', () => {
     dialog.close();
 })
 
-submitBtn.addEventListener('submit', () => {
+submitsubmit.addEventListener('click', () => {
 
     inputPriority.forEach(radiobtn => {
     radiobtn.addEventListener('change', checkedbtn)
