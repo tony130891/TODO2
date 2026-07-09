@@ -4,19 +4,26 @@
   padding: 0;
 }
 
-:focus {
-    outline: 2px solid black;
-}
-
 #todoDialog {
     margin: auto;
     box-sizing: border-box;
+}
+
+#todoForm {
+	width:360px;
+	padding:20px;
+    font-size: 105%;
+	letter-spacing: .8px;
+    height: 235px;
 }
 
 #todoDialog::backdrop {
     background-color: hsl(0 0% 0% / .5);
 }
 
+.form-group {
+    margin: 10px;
+}
 
 .content {
     width: 98%;
@@ -109,6 +116,20 @@ display: inline-block;
   outline: 1px solid black;
   border-radius: 15px;
   cursor: pointer;
+}
+
+input[type="text"] {
+  margin: 5px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+input[type="text"]:focus {
+background-color: lightblue;
+}
+
+:focus {
+    outline: 2px solid black;
 }
 
 .project {
