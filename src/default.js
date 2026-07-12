@@ -4,6 +4,7 @@ import "./styles.css";
 import labellow from "./low.svg";
 import labelhigh from "./high.svg";
 import medium from "./medium.svg";
+import editContent from "./edit.svg";
 import { todayTasks } from "./today.js";
 import { tomorrowTasks } from "./tomorrow.js";
 import { soonTasks } from "./soon.js";
@@ -14,9 +15,12 @@ import { tabVisualizer } from './home.js';
 const img = new Image();
 const img2 = new Image();
 const img3 = new Image();
+const img4 = new Image();
+
 img.src = labellow;
 img2.src = medium;
 img3.src = labelhigh;
+img4.src = editContent;
 
 const taskAdder = document.querySelector('.addTask');
 const dialog = document.querySelector('#todoDialog');
@@ -37,6 +41,7 @@ const todayTab = document.querySelector('.today');
 const tomorrowTab = document.querySelector('.tomorrow');
 const soonTab = document.querySelector('.soon');
 const doneTab = document.querySelector('.done');
+const editable = document.querySelector('.editBtn');
 
 firstLoad(homeTab);
 
@@ -80,3 +85,4 @@ homeTab.addEventListener('click', () => {
     tabVisualizer(taskArr);
     console.log(taskArr)
 })
+

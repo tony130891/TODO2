@@ -13,7 +13,6 @@ const main = document.querySelector('.main');
 const doneTab = document.querySelector('.done');
 
 const currentDate = format(new Date(), "yyyy-MM-dd");
-export let doneCount = 0;
 
 
  export const checkedbtn = () => {
@@ -36,19 +35,24 @@ export function taskVisualizer() {
         div.setAttribute('data-name', newTask.title);
         main.appendChild(div);
 
+        const details = document.createElement('details');
+        div.appendChild(details);
+        const summary = document.createElement('summary');
+        summary.textContent = `${newTask.title}`;
+        details.appendChild(summary);
+
         const h2 = document.createElement('h2');
         h2.textContent = `${newTask.title}`
-        div.appendChild(h2);
+        details.appendChild(h2);
 
         const para = document.createElement('p');
-        para.classList.add('hiddenP')
         para.textContent = `${newTask.description}`;
-        h2.appendChild(para);
+        details.appendChild(para);
 
 
         const div1 = document.createElement('div');
         div1.classList.add('labels');
-        h2.appendChild(div1);    
+        details.appendChild(div1);    
 
         
         const svglabel = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
@@ -67,12 +71,14 @@ export function taskVisualizer() {
 
     const divCheck = document.createElement('div');
     para.appendChild(divCheck);
+    divCheck.classList.add('done')
     const labelInput = document.createElement('label');
     divCheck.appendChild(labelInput);
     const taskDone = document.createElement('input');
     taskDone.type = 'checkbox';
     labelInput.classList.add('Btndone')
     labelInput.appendChild(taskDone)
+    div.appendChild(divCheck)
 
 if(newTask.priority == 'low') {
         svglabel.classList.add('svglow');
@@ -94,8 +100,14 @@ if(newTask.priority == 'low') {
                 taskArr.splice(task, 1);
             }
         }
+
     })
-    
+        const editBtn = document.createElement('button');
+        editBtn.textContent = "edit";
+        editBtn.classList.add('editBtn');
+        div.appendChild(editBtn)
+        
+        console.log(taskArr);
     };
 
 
