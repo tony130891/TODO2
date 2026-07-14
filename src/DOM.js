@@ -65,9 +65,20 @@ export function taskVisualizer() {
     div1.appendChild(duedate);
 
     //TOADD: TAB
-    if(remainingDate.includes('minute')) {
-        todayTasks.push(newTask)            
-    }
+    switch (true) {
+    case remainingDate.includes("minutes") ||
+      remainingDate.includes("minute") ||
+      remainingDate.includes("hours") ||
+      remainingDate.includes("hour"):
+      todayTasks.push(newTask);
+      break;
+    case remainingDate.includes("days"):
+      soonTasks.push(newTask);
+      break;
+    case remainingDate.includes("day"):
+      tomorrowTasks.push(newTask);
+      break;
+  }
 
     const divCheck = document.createElement('div');
     para.appendChild(divCheck);
@@ -103,12 +114,27 @@ if(newTask.priority == 'low') {
 
     })
         const editBtn = document.createElement('button');
-        editBtn.textContent = "edit";
+        editBtn.textContent = "Edit";
         editBtn.classList.add('editBtn');
         div.appendChild(editBtn)
         
+    editBtn.addEventListener("click", () => {
+    if (editBtn.textContent === "Edit") {
+      h2.setAttribute("contenteditable", "true");
+      para.setAttribute("contenteditable", "true");
+      editBtn.textContent = "Save";
+    } else {
+      h2.setAttribute("contenteditable", "false");
+      newTask.title = h2.textContent;
+      para.setAttribute("contenteditable", "false");
+      newTask.description = para.textContent;
+      editBtn.textContent = "Edit";
+    }
+  });
         console.log(taskArr);
     };
 
 
 export const taskArr = [];
+
+TOFIX: EDITBTN TO CHANGE THE PRIORITY
