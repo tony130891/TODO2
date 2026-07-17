@@ -122,6 +122,11 @@ if(newTask.priority == 'low') {
     if (editBtn.textContent === "Edit") {
       h2.setAttribute("contenteditable", "true");
       para.setAttribute("contenteditable", "true");
+      h2.setAttribute('id', 'focusmode');
+      para.setAttribute('id', 'focusmode');
+      h2.focus();
+      para.focus();
+      //TOFIX
       console.log(svglabel)
       console.log(newTask.priority)
       /* const newSelect = document.createElement('select');

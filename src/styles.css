@@ -166,3 +166,7 @@ background-color: lightblue;
     grid-column: 2 / 3;
     grid-row: 1 / 2;
 }
+
+#focusmode:focus {
+    outline: 3px solid rgb(168, 58, 58);
+}
