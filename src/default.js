@@ -27,6 +27,8 @@ const dialog = document.querySelector('#todoDialog');
 const submitsubmit = dialog.querySelector('#submit-task')
 const dialogContent = dialog.querySelector('.dialogContent');
 const closeDialog = dialog.querySelector('#close-dialog');
+const toggleBtn = document.querySelector('.toggleBtn');
+const body = document.body;
 const inputTitle = document.querySelector('#input-title');
 const inputDescription = document.querySelector('#input-description');
 const inputDuedate = document.querySelector('#input-duedate');
@@ -86,3 +88,13 @@ homeTab.addEventListener('click', () => {
     console.log(taskArr)
 })
 
+toggleBtn.addEventListener('click', () => {
+body.classList.toggle('darkTheme');
+body.classList.toggle('light');
+
+if(body.classList.contains('darkTheme')) {
+    toggleBtn.textContent = 'LIGHT';
+} else {
+    toggleBtn.textContent = 'DARK';
+}
+})

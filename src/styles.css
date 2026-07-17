@@ -3,6 +3,15 @@
   margin: 0;
 }
 
+.darkTheme {
+    background-color: black;
+    color: white;
+}
+
+.darkTheme .project {
+    color: black
+}
+
 #todoDialog {
     margin: auto;
     box-sizing: border-box;
@@ -132,7 +141,8 @@ background-color: lightblue;
 .project {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 20px;
   font-size: 16px;
   margin: 12px;
   border-bottom: 2px solid black;
