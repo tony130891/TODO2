@@ -1,7 +1,6 @@
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
 }
 
 #todoDialog {
@@ -56,8 +55,6 @@ a {
 ul > button {
     font-size: 22px;
     list-style-type: none;
-    margin: 0;
-    padding: 0
 }
 
 .schedule {
@@ -76,7 +73,7 @@ ul > button {
 .svglow {
   width: 24px;
   height: 24px;
-  background-image: url("./low.svg");
+  background-image: url("./assets/low.svg");
   background-repeat: no-repeat;
   background-size: contain;  
 }
@@ -84,7 +81,7 @@ ul > button {
 .svgmedium {
   width: 24px;
   height: 24px;
-  background-image: url('./medium.svg');
+  background-image: url('./assets/medium.svg');
   background-repeat: no-repeat;
   background-size: contain;  
 }
@@ -92,7 +89,7 @@ ul > button {
 .svghigh {
   width: 24px;
   height: 24px;
-  background-image: url('./high.svg');
+  background-image: url('./assets/high.svg');
   background-repeat: no-repeat;
   background-size: contain;  
 }

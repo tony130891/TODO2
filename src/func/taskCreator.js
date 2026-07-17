@@ -1,7 +1,7 @@
-import { todayTasks } from "./today.js";
-import { tomorrowTasks } from "./tomorrow.js";
-import { soonTasks } from "./soon.js";
-import { doneTasks, doneCount } from './done.js';
+import { todayTasks } from "../pages/today.js";
+import { tomorrowTasks } from "../pages/tomorrow.js";
+import { soonTasks } from "../pages/soon.js";
+import { doneTasks, doneCount } from '../pages/done.js';
 
 export class TaskCreator {
   constructor(title,description,dueDate,priority, checklist, category) 

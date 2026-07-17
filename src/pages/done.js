@@ -1,4 +1,4 @@
-import { taskArr, taskRemover, taskVisualizer } from './DOM.js';
+import { taskArr, taskRemover, taskVisualizer } from '../func/DOM.js';
 
 const doneTab = document.querySelector('.done');
 const main = document.querySelector('.main');

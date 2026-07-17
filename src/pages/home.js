@@ -1,4 +1,4 @@
-import { taskArr } from './DOM.js';
+import { taskArr } from '../func/DOM.js';
 import { format, formatDistance, subDays } from 'date-fns';
 
 const main = document.querySelector('.main');

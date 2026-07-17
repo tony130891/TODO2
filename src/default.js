@@ -1,16 +1,16 @@
-import { TaskCreator} from './taskCreator.js';
-import { taskVisualizer, taskArr, checkedbtn, doneCount } from "./DOM.js";
+import { TaskCreator} from './func/taskCreator.js';
+import { taskVisualizer, taskArr, checkedbtn, doneCount } from "./func/DOM.js";
 import "./styles.css";
-import labellow from "./low.svg";
-import labelhigh from "./high.svg";
-import medium from "./medium.svg";
-import editContent from "./edit.svg";
-import { todayTasks } from "./today.js";
-import { tomorrowTasks } from "./tomorrow.js";
-import { soonTasks } from "./soon.js";
-import { doneTasks, taskVisualizerDone } from './done.js';
-import { firstLoad, pageloader } from './pageload.js';
-import { tabVisualizer } from './home.js';
+import labellow from "./assets/low.svg";
+import labelhigh from "./assets/high.svg";
+import medium from "./assets/medium.svg";
+import editContent from "./assets/edit.svg";
+import { todayTasks } from "./pages/today.js";
+import { tomorrowTasks } from "./pages/tomorrow.js";
+import { soonTasks } from "./pages/soon.js";
+import { doneTasks, taskVisualizerDone } from './pages/done.js';
+import { firstLoad, pageloader } from './func/pageload.js';
+import { tabVisualizer } from './pages/home.js';
 
 const img = new Image();
 const img2 = new Image();

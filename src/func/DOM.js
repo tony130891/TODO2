@@ -1,9 +1,9 @@
 import { format, formatDistance, subDays } from 'date-fns';
 import { TaskCreator } from './taskCreator.js'
-import { todayTasks } from "./today.js";
-import { tomorrowTasks } from "./tomorrow.js";
-import { soonTasks } from "./soon.js";
-import { doneTasks, taskVisualizerDone } from './done.js';
+import { todayTasks } from "../pages/today.js";
+import { tomorrowTasks } from "../pages/tomorrow.js";
+import { soonTasks } from "../pages/soon.js";
+import { doneTasks, taskVisualizerDone } from '../pages/done.js';
 
 const inputTitle = document.querySelector('#input-title');
 const inputDescription = document.querySelector('#input-description');
@@ -122,6 +122,27 @@ if(newTask.priority == 'low') {
     if (editBtn.textContent === "Edit") {
       h2.setAttribute("contenteditable", "true");
       para.setAttribute("contenteditable", "true");
+      console.log(svglabel)
+      console.log(newTask.priority)
+      /* const newSelect = document.createElement('select');
+      const optGroup = document.createElement("optgroup");
+      optGroup.label = 'priorityy';
+
+
+      const opt1 = document.createElement('option');
+      const opt2 = document.createElement('option');
+      const opt3 = document.createElement('option');
+      opt1.value = "high";
+      opt2.value = "medium";
+      opt2.textContent = 'medium';
+      opt3.value = "low";
+
+      svglabel.appendChild(newSelect);
+      newSelect.appendChild(optGroup);
+      optGroup.appendChild(opt1)
+      optGroup.appendChild(opt2)
+      optGroup.appendChild(opt3)
+*/
       editBtn.textContent = "Save";
     } else {
       h2.setAttribute("contenteditable", "false");
@@ -130,11 +151,11 @@ if(newTask.priority == 'low') {
       newTask.description = para.textContent;
       editBtn.textContent = "Edit";
     }
-  });
-        console.log(taskArr);
+     });
+     
     };
 
 
 export const taskArr = [];
 
-TOFIX: EDITBTN TO CHANGE THE PRIORITY
+//TOFIX: EDITBTN TO CHANGE THE PRIORITY
