@@ -35,7 +35,13 @@ export function taskVisualizer() {
         div.setAttribute('data-name', newTask.title);
         main.appendChild(div);
 
+        const div2 = document.createElement("div");
+        div2.classList.add('sort');
+        div.appendChild(div2);
+
         const details = document.createElement('details');
+        details.classList.add('details');
+        details.setAttribute('open', 'true');
         div.appendChild(details);
         const summary = document.createElement('summary');
         summary.textContent = `${newTask.title}`;
@@ -113,10 +119,15 @@ if(newTask.priority == 'low') {
         }
 
     })
+
+        const priorityButton = document.createElement("button");
+        priorityButton.classList.add("priorityBtn");
+        div2.appendChild(priorityButton);
+
         const editBtn = document.createElement('button');
         editBtn.textContent = "Edit";
         editBtn.classList.add('editBtn');
-        div.appendChild(editBtn)
+        div2.appendChild(editBtn)
         
     editBtn.addEventListener("click", () => {
     if (editBtn.textContent === "Edit") {
@@ -127,8 +138,6 @@ if(newTask.priority == 'low') {
       h2.focus();
       para.focus();
       //TOFIX
-      console.log(svglabel)
-      console.log(newTask.priority)
       /* const newSelect = document.createElement('select');
       const optGroup = document.createElement("optgroup");
       optGroup.label = 'priorityy';

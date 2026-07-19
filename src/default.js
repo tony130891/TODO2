@@ -5,9 +5,10 @@ import labellow from "./assets/low.svg";
 import labelhigh from "./assets/high.svg";
 import medium from "./assets/medium.svg";
 import editContent from "./assets/edit.svg";
-import { todayTasks } from "./pages/today.js";
-import { tomorrowTasks } from "./pages/tomorrow.js";
-import { soonTasks } from "./pages/soon.js";
+import priorityIcon from "./assets/prio.jpg";
+import { todayTasks, taskVisualizerToday } from "./pages/today.js";
+import { tomorrowTasks, taskVisualizerTomorrow } from "./pages/tomorrow.js";
+import { soonTasks, taskVisualizerSoon } from "./pages/soon.js";
 import { doneTasks, taskVisualizerDone } from './pages/done.js';
 import { firstLoad, pageloader } from './func/pageload.js';
 import { tabVisualizer } from './pages/home.js';
@@ -16,11 +17,13 @@ const img = new Image();
 const img2 = new Image();
 const img3 = new Image();
 const img4 = new Image();
+const img5 = new Image();
 
 img.src = labellow;
 img2.src = medium;
 img3.src = labelhigh;
 img4.src = editContent;
+img5.src = priorityIcon;
 
 const taskAdder = document.querySelector('.addTask');
 const dialog = document.querySelector('#todoDialog');
@@ -65,8 +68,8 @@ taskVisualizer();
 })
 
 todayTab.addEventListener('click', () => {
-    pageloader(todayTab)
-    console.log(todayTasks)
+    pageloader(todayTab);
+    taskVisualizerToday();
 })
 
 doneTab.addEventListener('click', () => {
@@ -76,10 +79,12 @@ doneTab.addEventListener('click', () => {
 
 tomorrowTab.addEventListener('click', () => {
     pageloader(tomorrowTab);
+    taskVisualizerTomorrow();
 })
 
 soonTab.addEventListener('click', () => {
     pageloader(soonTab);
+    taskVisualizerSoon();
 })
 
 homeTab.addEventListener('click', () => {
