@@ -137,26 +137,7 @@ if(newTask.priority == 'low') {
       para.setAttribute('id', 'focusmode');
       h2.focus();
       para.focus();
-      //TOFIX
-      /* const newSelect = document.createElement('select');
-      const optGroup = document.createElement("optgroup");
-      optGroup.label = 'priorityy';
-
-
-      const opt1 = document.createElement('option');
-      const opt2 = document.createElement('option');
-      const opt3 = document.createElement('option');
-      opt1.value = "high";
-      opt2.value = "medium";
-      opt2.textContent = 'medium';
-      opt3.value = "low";
-
-      svglabel.appendChild(newSelect);
-      newSelect.appendChild(optGroup);
-      optGroup.appendChild(opt1)
-      optGroup.appendChild(opt2)
-      optGroup.appendChild(opt3)
-*/
+  
       editBtn.textContent = "Save";
     } else {
       h2.setAttribute("contenteditable", "false");
@@ -166,7 +147,7 @@ if(newTask.priority == 'low') {
       editBtn.textContent = "Edit";
     }
      });
-     
+
     };
 
 

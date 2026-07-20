@@ -12,6 +12,7 @@ import { soonTasks, taskVisualizerSoon } from "./pages/soon.js";
 import { doneTasks, taskVisualizerDone } from './pages/done.js';
 import { firstLoad, pageloader } from './func/pageload.js';
 import { tabVisualizer } from './pages/home.js';
+import { storageTasks, retreiveTasks } from './func/editFunc.js';
 
 const img = new Image();
 const img2 = new Image();
@@ -49,6 +50,7 @@ const doneTab = document.querySelector('.done');
 const editable = document.querySelector('.editBtn');
 
 firstLoad(homeTab);
+retreiveTasks();
 
 taskAdder.addEventListener('click', () => {
  dialog.showModal();
@@ -65,6 +67,7 @@ submitsubmit.addEventListener('click', () => {
 })
   
 taskVisualizer();
+storageTasks()
 })
 
 todayTab.addEventListener('click', () => {
@@ -90,7 +93,6 @@ soonTab.addEventListener('click', () => {
 homeTab.addEventListener('click', () => {
     pageloader(homeTab);
     tabVisualizer(taskArr);
-    console.log(taskArr)
 })
 
 toggleBtn.addEventListener('click', () => {
@@ -103,3 +105,4 @@ if(body.classList.contains('darkTheme')) {
     toggleBtn.textContent = 'DARK';
 }
 })
+
