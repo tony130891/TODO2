@@ -25,14 +25,14 @@ export function taskRemover(task) {
             return divEl.remove()   
         }
 
-export function taskVisualizer() { 
+export function taskVisualizer(taskOBJ) { 
 
     const newTask = new TaskCreator(inputTitle.value, inputDescription.value, inputDuedate.value, checkedbtn(), 'notyet');
     taskArr.push(newTask);
         
         const div = document.createElement('div');
         div.classList.add('project');
-        div.setAttribute('data-name', newTask.title);
+        div.setAttribute('data-name', newTask.title || taskOBJ.title);
         main.appendChild(div);
 
         const div2 = document.createElement("div");
@@ -44,15 +44,15 @@ export function taskVisualizer() {
         details.setAttribute('open', 'true');
         div.appendChild(details);
         const summary = document.createElement('summary');
-        summary.textContent = `${newTask.title}`;
+        summary.textContent = `${newTask.title || taskOBJ.title}`;
         details.appendChild(summary);
 
         const h2 = document.createElement('h2');
-        h2.textContent = `${newTask.title}`
+        h2.textContent = `${newTask.title || taskOBJ.title}`
         details.appendChild(h2);
 
         const para = document.createElement('p');
-        para.textContent = `${newTask.description}`;
+        para.textContent = `${newTask.description || taskOBJ.description}`;
         details.appendChild(para);
 
 
