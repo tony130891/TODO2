@@ -1,19 +1,24 @@
 import { taskVisualizer, taskArr, currentDate } from './DOM.js';
 import { format, formatDistance, subDays } from 'date-fns';
 
+let storedItem;
+let getStored;
+
 export function storageTasks() { 
   for(let task of taskArr) {
-  localStorage.setItem(`${task.title}`, JSON.stringify(task));
+   getStored = localStorage.setItem(`${task.title}`, JSON.stringify(task))
+   storedItem = localStorage.getItem(`${task.title}`);
   }
+  //taskArr.push(JSON.parse(storedItem));
+  console.log(taskArr)
 }
 
-
+//const obj = JSON.parse(getStored);
 // tofix
-const taskFromStorage = localStorage.getItem('task');
-const obj = JSON.parse(taskFromStorage);
 
 export function retreiveTasks() {
-  if (taskFromStorage) {
+
+if (taskFromStorage) {
     for (let task of obj) {
       taskArr.push(task)
       taskVisualizer(task)
