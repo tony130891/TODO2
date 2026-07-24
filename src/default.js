@@ -51,6 +51,7 @@ const editable = document.querySelector('.editBtn');
 
 firstLoad(homeTab);
 retreiveTasks();
+console.log(taskArr)
 
 taskAdder.addEventListener('click', () => {
  dialog.showModal();

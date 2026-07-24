@@ -22,6 +22,7 @@ export const currentDate = format(new Date(), "yyyy-MM-dd");
 
 export function taskRemover(task) {
             const divEl = document.querySelector(`[data-name="${task}"]`);
+
             return divEl.remove()   
         }
         
@@ -33,7 +34,7 @@ export function taskVisualizer(taskVis) {
         
         const div = document.createElement('div');
         div.classList.add('project');
-        div.setAttribute('data-name', taskVis.title);
+        div.setAttribute('data-name', inputTitle.value || taskVis.title);
         main.appendChild(div);
 
         const div2 = document.createElement("div");
@@ -45,15 +46,15 @@ export function taskVisualizer(taskVis) {
         details.setAttribute('open', 'true');
         div.appendChild(details);
         const summary = document.createElement('summary');
-        summary.textContent = `${taskVis.title}`;
+        summary.textContent = `${newTask.title || taskVis.title}`;
         details.appendChild(summary);
 
         const h2 = document.createElement('h2');
-        h2.textContent = `${taskVis.title}`
+        h2.textContent = `${newTask.title || taskVis.title}`
         details.appendChild(h2);
 
         const para = document.createElement('p');
-        para.textContent = `${taskVis.description}`;
+        para.textContent = `${newTask.description || taskVis.description}`;
         details.appendChild(para);
 
 
@@ -110,7 +111,7 @@ if(newTask.priority == 'low') {
     }
 
     taskDone.addEventListener('change', () => {
-        newTask.checklist = true
+        taskVis.checklist = true
         for(let task of taskArr) {
             if(task.checklist == true) {
                 doneTasks.push(task)
@@ -118,7 +119,7 @@ if(newTask.priority == 'low') {
                 taskArr.splice(task, 1);
             }
         }
-
+        console.log(taskArr)
     })
 
         const priorityButton = document.createElement("button");

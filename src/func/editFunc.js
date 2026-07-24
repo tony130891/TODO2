@@ -2,9 +2,13 @@ import { taskVisualizer, taskArr, currentDate } from './DOM.js';
 import { format, formatDistance, subDays } from 'date-fns';
 
 export function storageTasks() { 
-    localStorage.setItem('task', JSON.stringify(taskArr));
+  for(let task of taskArr) {
+  localStorage.setItem(`${task.title}`, JSON.stringify(task));
+  }
 }
 
+
+// tofix
 const taskFromStorage = localStorage.getItem('task');
 const obj = JSON.parse(taskFromStorage);
 
