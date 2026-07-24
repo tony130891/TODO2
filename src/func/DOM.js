@@ -12,7 +12,7 @@ const inputPriority = document.querySelectorAll("input[name='priority']");
 const main = document.querySelector('.main');
 const doneTab = document.querySelector('.done');
 
-const currentDate = format(new Date(), "yyyy-MM-dd");
+export const currentDate = format(new Date(), "yyyy-MM-dd");
 
 
  export const checkedbtn = () => {
@@ -24,15 +24,16 @@ export function taskRemover(task) {
             const divEl = document.querySelector(`[data-name="${task}"]`);
             return divEl.remove()   
         }
-
-export function taskVisualizer() { 
-
+        
+        
+export function taskVisualizer(taskVis) { 
+            
     const newTask = new TaskCreator(inputTitle.value, inputDescription.value, inputDuedate.value, checkedbtn(), 'notyet');
     taskArr.push(newTask);
         
         const div = document.createElement('div');
         div.classList.add('project');
-        div.setAttribute('data-name', newTask.title);
+        div.setAttribute('data-name', taskVis.title);
         main.appendChild(div);
 
         const div2 = document.createElement("div");
@@ -44,15 +45,15 @@ export function taskVisualizer() {
         details.setAttribute('open', 'true');
         div.appendChild(details);
         const summary = document.createElement('summary');
-        summary.textContent = `${newTask.title}`;
+        summary.textContent = `${taskVis.title}`;
         details.appendChild(summary);
 
         const h2 = document.createElement('h2');
-        h2.textContent = `${newTask.title}`
+        h2.textContent = `${taskVis.title}`
         details.appendChild(h2);
 
         const para = document.createElement('p');
-        para.textContent = `${newTask.description}`;
+        para.textContent = `${taskVis.description}`;
         details.appendChild(para);
 
 
@@ -65,7 +66,7 @@ export function taskVisualizer() {
         div1.appendChild(svglabel);
 
 
-    const remainingDate = formatDistance(currentDate, inputDuedate.value);
+    const remainingDate = formatDistance(currentDate, inputDuedate.value || taskVis.dueDate);
     const duedate = document.createElement('p');
     duedate.textContent = `${remainingDate}`
     div1.appendChild(duedate);
