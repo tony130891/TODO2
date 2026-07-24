@@ -111,17 +111,14 @@ if(newTask.priority == 'low') {
     }
 
     taskDone.addEventListener('change', () => {
-        //taskVis.checklist = true;
-        //newTask.checklist = true;
-        console.log(newTask)
-        console.log(taskVis)
-        /*for(let task of taskArr) {
+        newTask.checklist = true;
+        for(let task of taskArr) {
             if(task.checklist == true) {
                 doneTasks.push(task)
                 taskRemover(task.title)
                 taskArr.splice(task, 1);
             }
-        }*/
+        }
         console.log(taskArr)
     })
 
