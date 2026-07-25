@@ -50,7 +50,7 @@ const doneTab = document.querySelector('.done');
 const editable = document.querySelector('.editBtn');
 
 firstLoad(homeTab);
-//retreiveTasks();
+retreiveTasks();
 
 taskAdder.addEventListener('click', () => {
  dialog.showModal();

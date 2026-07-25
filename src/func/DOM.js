@@ -4,6 +4,7 @@ import { todayTasks } from "../pages/today.js";
 import { tomorrowTasks } from "../pages/tomorrow.js";
 import { soonTasks } from "../pages/soon.js";
 import { doneTasks, taskVisualizerDone } from '../pages/done.js';
+import { removeTask } from '../func/editFunc.js';
 
 const inputTitle = document.querySelector('#input-title');
 const inputDescription = document.querySelector('#input-description');
@@ -112,6 +113,7 @@ if(newTask.priority == 'low') {
 
     taskDone.addEventListener('change', () => {
         newTask.checklist = true;
+        removeTask()
         for(let task of taskArr) {
             if(task.checklist == true) {
                 doneTasks.push(task)
