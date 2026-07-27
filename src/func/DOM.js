@@ -20,7 +20,7 @@ export const currentDate = format(new Date(), "yyyy-MM-dd");
         let selectedRadio = document.querySelector("input[name='priority']:checked");
         return selectedRadio.value
     }
-
+// TOFIX 
 export function taskRemover(task) {
             const divEl = document.querySelector(`[data-name="${task}"]`);
 
@@ -29,10 +29,9 @@ export function taskRemover(task) {
         
         
 export function taskVisualizer(taskVis) { 
-            
     const newTask = new TaskCreator(inputTitle.value, inputDescription.value, inputDuedate.value, checkedbtn(), 'notyet');
-    taskArr.push(newTask);
-        
+    taskArr.push(newTask);  
+
         const div = document.createElement('div');
         div.classList.add('project');
         div.setAttribute('data-name', inputTitle.value || taskVis.title);
@@ -111,9 +110,8 @@ if(newTask.priority == 'low') {
         labelInput.style.backgroundColor = "#ed4d4d";
     }
 
-    taskDone.addEventListener('change', () => {
+     taskDone.addEventListener('change', () => {
         newTask.checklist = true;
-        removeTask()
         for(let task of taskArr) {
             if(task.checklist == true) {
                 doneTasks.push(task)
@@ -123,6 +121,7 @@ if(newTask.priority == 'low') {
         }
         console.log(taskArr)
     })
+
 
         const priorityButton = document.createElement("button");
         priorityButton.classList.add("priorityBtn");
@@ -151,10 +150,8 @@ if(newTask.priority == 'low') {
       editBtn.textContent = "Edit";
     }
      });
-
+     console.log(taskArr)
     };
 
 
 export const taskArr = [];
-
-//TOFIX: EDITBTN TO CHANGE THE PRIORITY

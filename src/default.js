@@ -12,7 +12,7 @@ import { soonTasks, taskVisualizerSoon } from "./pages/soon.js";
 import { doneTasks, taskVisualizerDone } from './pages/done.js';
 import { firstLoad, pageloader } from './func/pageload.js';
 import { tabVisualizer } from './pages/home.js';
-import { storageTasks, retreiveTasks } from './func/editFunc.js';
+import { storageTasks, retrieveTasks } from './func/editFunc.js';
 
 const img = new Image();
 const img2 = new Image();
@@ -50,7 +50,7 @@ const doneTab = document.querySelector('.done');
 const editable = document.querySelector('.editBtn');
 
 firstLoad(homeTab);
-retreiveTasks();
+retrieveTasks();
 
 taskAdder.addEventListener('click', () => {
  dialog.showModal();

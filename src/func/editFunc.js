@@ -1,23 +1,150 @@
-import { taskVisualizer, taskArr, currentDate } from './DOM.js';
+import { taskVisualizer, taskArr, currentDate, checkedbtn, taskRemover } from './DOM.js';
 import { format, formatDistance, subDays } from 'date-fns';
+import { TaskCreator } from './taskCreator.js';
+import { todayTasks } from "../pages/today.js";
+import { tomorrowTasks } from "../pages/tomorrow.js";
+import { soonTasks } from "../pages/soon.js";
+import { doneTasks, taskVisualizerDone } from '../pages/done.js';
 
-let getStored;
-let storedItem;
+const main = document.querySelector('.main');
+const doneTab = document.querySelector('.done');
 
-export function storageTasks() { 
-  for(let task of taskArr) {
-   getStored = localStorage.setItem(`${task.title}`, JSON.stringify(task))
-   storedItem = localStorage.getItem(`${task.title}`);
-  }
+export function storageTasks() {
+  localStorage.setItem('tasks', JSON.stringify(taskArr));
 }
 
+// TOFIX TASKREMOVER
+function taskRender(taskrender) {
 
+       const div = document.createElement('div');
+        div.classList.add('project');
+        div.setAttribute('data-name', taskrender.title);
+        main.appendChild(div);
 
-// tofix
-export function retreiveTasks() {
-if (storedItem) {
-  taskVisualizer(task)
-  console.log(taskArr)
+        const div2 = document.createElement("div");
+        div2.classList.add('sort');
+        div.appendChild(div2);
+
+        const details = document.createElement('details');
+        details.classList.add('details');
+        details.setAttribute('open', 'true');
+        div.appendChild(details);
+        const summary = document.createElement('summary');
+        summary.textContent = `${taskrender.title}`;
+        details.appendChild(summary);
+
+        const h2 = document.createElement('h2');
+        h2.textContent = `${taskrender.title}`
+        details.appendChild(h2);
+
+        const para = document.createElement('p');
+        para.textContent = `${taskrender.description}`;
+        details.appendChild(para);
+
+        const div1 = document.createElement('div');
+        div1.classList.add('labels');
+        details.appendChild(div1);    
+
+        
+        const svglabel = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+        div1.appendChild(svglabel);
+
+        const remainingDate = formatDistance(currentDate, taskrender.dueDate);
+        const duedate = document.createElement('p');
+        duedate.textContent = `${remainingDate}`
+        div1.appendChild(duedate);
+        
+            //TOADD: TAB
+            switch (true) {
+            case remainingDate.includes("minutes") ||
+              remainingDate.includes("minute") ||
+              remainingDate.includes("hours") ||
+              remainingDate.includes("hour"):
+              todayTasks.push(taskrender);
+              break;
+            case remainingDate.includes("days"):
+              soonTasks.push(taskrender);
+              break;
+            case remainingDate.includes("day"):
+              tomorrowTasks.push(taskrender);
+              break;
+          }
+        
+            const divCheck = document.createElement('div');
+            para.appendChild(divCheck);
+            divCheck.classList.add('done')
+            const labelInput = document.createElement('label');
+            divCheck.appendChild(labelInput);
+            const taskDone = document.createElement('input');
+            taskDone.type = 'checkbox';
+            labelInput.classList.add('Btndone')
+            labelInput.appendChild(taskDone)
+            div.appendChild(divCheck)
+        
+        if(taskrender.priority == 'low') {
+                svglabel.classList.add('svglow');
+                labelInput.style.backgroundColor = "#c2c2fb";
+            } else if (taskrender.priority == 'medium') {
+                svglabel.classList.add('svgmedium');
+                labelInput.style.backgroundColor = "yellow";
+            } else {
+                svglabel.classList.add('svghigh');
+                labelInput.style.backgroundColor = "#ed4d4d";
+            }
+        
+             taskDone.addEventListener('change', () => {
+                taskrender.checklist = true;
+                for(let task of taskArr) {
+                    if(task.checklist == true) {
+                        doneTasks.push(task)
+                        taskRemover(task.title)
+                        taskArr.splice(task, 1);
+                    }
+                }
+                console.log(taskArr)
+            })
+        
+        
+                const priorityButton = document.createElement("button");
+                priorityButton.classList.add("priorityBtn");
+                div2.appendChild(priorityButton);
+        
+                const editBtn = document.createElement('button');
+                editBtn.textContent = "Edit";
+                editBtn.classList.add('editBtn');
+                div2.appendChild(editBtn)
+                
+            editBtn.addEventListener("click", () => {
+            if (editBtn.textContent === "Edit") {
+              h2.setAttribute("contenteditable", "true");
+              para.setAttribute("contenteditable", "true");
+              h2.setAttribute('id', 'focusmode');
+              para.setAttribute('id', 'focusmode');
+              h2.focus();
+              para.focus();
+          
+              editBtn.textContent = "Save";
+            } else {
+              h2.setAttribute("contenteditable", "false");
+              taskrender.title = h2.textContent;
+              para.setAttribute("contenteditable", "false");
+              taskrender.description = para.textContent;
+              editBtn.textContent = "Edit";
+            }
+        });
+
+}
+
+export function retrieveTasks() {
+  const storedTasks = localStorage.getItem('tasks')
+  if (storedTasks) {
+    const tasks = JSON.parse(storedTasks)
+    for(let task of tasks) {
+      task = new TaskCreator(task.title, task.description, task.dueDate, task.priority, task.checklist);
+      taskArr.push(task)
+      taskRender(task)
+      console.log(taskArr)
+    }
   } else {
     console.log("No data in local storage");
   }
@@ -26,5 +153,5 @@ if (storedItem) {
 //FIXED
 export function removeTask() {
   const taskToErase = JSON.parse(storedItem);
-  localStorage.removeItem(taskToErase.title);
 }
+
