@@ -13,7 +13,7 @@ export function storageTasks() {
   localStorage.setItem('tasks', JSON.stringify(taskArr));
 }
 
-// TOFIX TASKREMOVER
+
 function taskRender(taskrender) {
 
        const div = document.createElement('div');
@@ -95,9 +95,10 @@ function taskRender(taskrender) {
              taskDone.addEventListener('change', () => {
                 taskrender.checklist = true;
                 for(let task of taskArr) {
-                    if(task.checklist == true) {
+                  if(task.checklist == true) {
                         doneTasks.push(task)
                         taskRemover(task.title)
+                        removeTask(task)
                         taskArr.splice(task, 1);
                     }
                 }
@@ -143,15 +144,23 @@ export function retrieveTasks() {
       task = new TaskCreator(task.title, task.description, task.dueDate, task.priority, task.checklist);
       taskArr.push(task)
       taskRender(task)
-      console.log(taskArr)
     }
   } else {
     console.log("No data in local storage");
   }
 }
 
+// TOFIX TASKREMOVER
 //FIXED
-export function removeTask() {
-  const taskToErase = JSON.parse(storedItem);
+export function removeTask(taskToRemove) {
+  const storedTasks = localStorage.getItem('tasks')
+  const tasks = storedTasks ? JSON.parse(storedTasks) : [];
+  
+  let result = JSON.parse(storedTasks).filter((task) => task.title !== taskToRemove["title"]);
+  console.log(result)
+  
+  let resultJSON = JSON.stringify(result);
+
+  localStorage.setItem('tasks', resultJSON)
 }
 

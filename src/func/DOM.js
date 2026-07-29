@@ -112,10 +112,10 @@ if(newTask.priority == 'low') {
 
      taskDone.addEventListener('change', () => {
         newTask.checklist = true;
+        removeTask(taskVis);
         for(let task of taskArr) {
             if(task.checklist == true) {
                 doneTasks.push(task)
-                taskRemover(task.title)
                 taskArr.splice(task, 1);
             }
         }
@@ -150,7 +150,7 @@ if(newTask.priority == 'low') {
       editBtn.textContent = "Edit";
     }
      });
-     console.log(taskArr)
+     
     };
 
 
