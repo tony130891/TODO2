@@ -150,14 +150,12 @@ export function retrieveTasks() {
   }
 }
 
-// TOFIX TASKREMOVER
-//FIXED
+
 export function removeTask(taskToRemove) {
   const storedTasks = localStorage.getItem('tasks')
   const tasks = storedTasks ? JSON.parse(storedTasks) : [];
   
-  let result = JSON.parse(storedTasks).filter((task) => task.title !== taskToRemove["title"]);
-  console.log(result)
+  let result = JSON.parse(storedTasks).filter((task) => task.title !== taskToRemove["title"])
   
   let resultJSON = JSON.stringify(result);
 

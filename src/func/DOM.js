@@ -5,6 +5,7 @@ import { tomorrowTasks } from "../pages/tomorrow.js";
 import { soonTasks } from "../pages/soon.js";
 import { doneTasks, taskVisualizerDone } from '../pages/done.js';
 import { removeTask } from '../func/editFunc.js';
+import { priorityChanger } from './priorityFunc.js';
 
 const inputTitle = document.querySelector('#input-title');
 const inputDescription = document.querySelector('#input-description');
@@ -126,6 +127,8 @@ if(newTask.priority == 'low') {
         const priorityButton = document.createElement("button");
         priorityButton.classList.add("priorityBtn");
         div2.appendChild(priorityButton);
+
+        priorityButton.addEventListener('click', priorityChanger)
 
         const editBtn = document.createElement('button');
         editBtn.textContent = "Edit";

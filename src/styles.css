@@ -194,3 +194,18 @@ background-color: lightblue;
   background-repeat: no-repeat;
 }
 
+.dropdownContent {
+    position: absolute;
+    background-color: #333;
+    min-width: 100px;
+    bottom: 400px;
+    z-index: 1;
+    display: flex;
+    color: white;
+}
+
+.dropdownContent label {
+    color: white;
+    padding: 10px 15px;
+    display: block;
+}
