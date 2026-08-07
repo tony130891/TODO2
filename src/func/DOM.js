@@ -21,12 +21,6 @@ export const currentDate = format(new Date(), "yyyy-MM-dd");
         let selectedRadio = document.querySelector("input[name='priority']:checked");
         return selectedRadio.value
     }
-// TOFIX 
-export function taskRemover(task) {
-            const divEl = document.querySelector(`[data-name="${task}"]`);
-
-            return divEl.remove()   
-        }
         
         
 export function taskVisualizer(taskVis) { 
@@ -113,11 +107,12 @@ if(newTask.priority == 'low') {
 
      taskDone.addEventListener('change', () => {
         newTask.checklist = true;
-        removeTask(newTask);
+        console.log(newTask)
+        console.log('im on the taskVis funct')
+        taskRemover(newTask);
         doneTasks.push(newTask)
         taskArr.splice(newTask, 1);
-        console.log(newTask)
-        console.log(taskArr)
+        removeTask(newTask);
     })
 
        
@@ -186,5 +181,10 @@ if(newTask.priority == 'low') {
      console.log(taskArr)
     };
 
+export function taskRemover(task) {
+            const divEl = document.querySelector(`[data-name="${task.title}"]`);
+    
+            return divEl.remove()   
+        }
 
 export const taskArr = [];

@@ -93,6 +93,7 @@ export function tabVisualizer(arrayTask) {
              taskDone.addEventListener('change', () => {
                 task.checklist = true;
                 removeTask(task);
+                taskRemover(task)
                 if(task.checklist == true) {
                      doneTasks.push(task)
                     taskArr.splice(task, 1);
