@@ -113,22 +113,52 @@ if(newTask.priority == 'low') {
 
      taskDone.addEventListener('change', () => {
         newTask.checklist = true;
-        removeTask(taskVis);
-        for(let task of taskArr) {
-            if(task.checklist == true) {
-                doneTasks.push(task)
-                taskArr.splice(task, 1);
-            }
-        }
+        removeTask(newTask);
+        doneTasks.push(newTask)
+        taskArr.splice(newTask, 1);
+        console.log(newTask)
         console.log(taskArr)
     })
 
-
+       
         const priorityButton = document.createElement("button");
         priorityButton.classList.add("priorityBtn");
-        div2.appendChild(priorityButton);
+        
+        const dropdown = document.createElement('div');
+        dropdown.classList.add('dropdown');
+        div2.appendChild(dropdown);
+        dropdown.appendChild(priorityButton)
 
-        priorityButton.addEventListener('click', priorityChanger)
+        const dropdownContent = document.createElement('div');
+        dropdownContent.classList.add('dropdown-content');
+        dropdownContent.id = 'myDropdown';
+        dropdown.appendChild(dropdownContent);
+
+         const priorityHigh = document.createElement('input');
+            priorityHigh.type = 'radio';
+            priorityHigh.name = 'priority';
+            priorityHigh.value = 'high';
+            priorityHigh.id = 'priorityhigh'
+            
+            const labelHigh = document.createElement("label");
+            labelHigh.textContent = "high";
+            dropdownContent.appendChild(labelHigh)
+            dropdownContent.appendChild(priorityHigh);
+
+             const priorityMedium = document.createElement('input');
+            priorityMedium.type = 'radio';
+            priorityMedium.name = 'priority';
+            priorityMedium.value = 'medium';
+            priorityMedium.id = 'prioritymedium'
+            
+            const labelMedium = document.createElement("label");
+            labelMedium.textContent = "medium";
+            dropdownContent.appendChild(labelMedium)
+            dropdownContent.appendChild(priorityMedium);
+
+            priorityButton.addEventListener('click', () => {
+            priorityChanger();
+            })
 
         const editBtn = document.createElement('button');
         editBtn.textContent = "Edit";
@@ -153,7 +183,7 @@ if(newTask.priority == 'low') {
       editBtn.textContent = "Edit";
     }
      });
-     
+     console.log(taskArr)
     };
 
 

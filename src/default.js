@@ -1,5 +1,5 @@
 import { TaskCreator} from './func/taskCreator.js';
-import { taskVisualizer, taskArr, checkedbtn, doneCount } from "./func/DOM.js";
+import { taskVisualizer, taskArr, checkedbtn, doneCount, taskRemover } from "./func/DOM.js";
 import "./styles.css";
 import labellow from "./assets/low.svg";
 import labelhigh from "./assets/high.svg";
@@ -13,6 +13,7 @@ import { doneTasks, taskVisualizerDone } from './pages/done.js';
 import { firstLoad, pageloader } from './func/pageload.js';
 import { tabVisualizer } from './pages/home.js';
 import { storageTasks, retrieveTasks } from './func/editFunc.js';
+import { priorityChanger } from './func/priorityFunc.js';
 
 const img = new Image();
 const img2 = new Image();
@@ -106,3 +107,13 @@ if(body.classList.contains('darkTheme')) {
 }
 })
 
+
+
+const priorityButton = document.querySelector('.priorityBtn');
+
+
+/*priorityButton.addEventListener('click', () => {
+    console.log('im a working or not?')
+    priorityChanger();
+})
+    */

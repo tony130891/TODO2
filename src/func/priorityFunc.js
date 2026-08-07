@@ -1,20 +1,11 @@
 
 export function priorityChanger() {
-    const priorityBtn = document.querySelector('.priorityBtn');
-    const dropdownContent = document.createElement('div');
-    dropdownContent.classList.add('dropdownContent');
-    priorityBtn.appendChild(dropdownContent);
+    console.log('whats happening');
 
-    const priorityHigh = document.createElement('input');
-
-    priorityHigh.type = 'radio';
-    priorityHigh.name = 'priority';
-    priorityHigh.value = 'high';
-    priorityHigh.id = 'priorityhigh'
-
-    const labelHigh = document.createElement("label");
-    labelHigh.textContent = "high";
-
+     const priorityBtn = document.querySelector('.priorityBtn');
+     const dropdownContent = document.querySelector('#myDropdown')
+     dropdownContent.classList.toggle("show");
+    /*
     const priorityMedium = document.createElement('input');
     priorityMedium.type = 'radio';
     priorityMedium.name = 'priority';
@@ -32,14 +23,14 @@ export function priorityChanger() {
 
     const labelLow = document.createElement("label");
     labelLow.textContent = "low";
-
-    dropdownContent.appendChild(priorityHigh);
-    dropdownContent.appendChild(labelHigh)
-    dropdownContent.appendChild(priorityMedium);
+   dropdownContent.appendChild(priorityMedium);
     dropdownContent.appendChild(labelMedium);
     dropdownContent.appendChild(priorityLow);
     dropdownContent.appendChild(labelLow);   
-
+    
+   priorityBtn.appendChild(dropdownContent);
+   dropdownContent.appendChild(labelHigh)
+   dropdownContent.appendChild(priorityHigh);
     const submitBtn = document.createElement('button');
     submitBtn.textContent = 'change';
     const cancelBtn = document.createElement('button');
@@ -47,4 +38,7 @@ export function priorityChanger() {
 
     dropdownContent.appendChild(submitBtn);
     dropdownContent.appendChild(cancelBtn);
+    const form = document.querySelector('.form-group');
+    form.style.display = 'block';
+*/
 }
