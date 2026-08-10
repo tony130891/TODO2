@@ -6,14 +6,6 @@ export function priorityChanger() {
      const dropdownContent = document.querySelector('#myDropdown')
      dropdownContent.classList.toggle("show");
     /*
-    const priorityMedium = document.createElement('input');
-    priorityMedium.type = 'radio';
-    priorityMedium.name = 'priority';
-    priorityMedium.value = 'medium';
-    priorityMedium.id = 'prioritymedium';
-
-    const labelMedium = document.createElement("label");
-    labelMedium.textContent = "medium";
 
     const priorityLow = document.createElement('input');
     priorityLow.type = 'radio';

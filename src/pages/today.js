@@ -1,3 +1,5 @@
+import { taskArr, taskRemover, taskVisualizer } from '../func/DOM.js';
+
 export const todayTasks = [];
 const main = document.querySelector(".main");
 

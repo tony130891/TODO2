@@ -85,21 +85,24 @@ export function tabVisualizer(arrayTask) {
             } else if (task.priority == 'medium') {
                 svglabel.classList.add('svgmedium');
                 labelInput.style.backgroundColor = "yellow";
-            } else {
+              } else {
                 svglabel.classList.add('svghigh');
                 labelInput.style.backgroundColor = "#ed4d4d";
-            }
-        
-             taskDone.addEventListener('change', () => {
+              }
+              
+              //const taskDone = document.querySelector('.Btndone');
+              /*taskDone.addEventListener('change', () => {
                 task.checklist = true;
-                removeTask(task);
-                taskRemover(task)
-                if(task.checklist == true) {
-                     doneTasks.push(task)
-                    taskArr.splice(task, 1);
-                }
-            })
-         
+                doneTasks.push(task)
+                console.log(doneTasks)
+                 for(let task1 of doneTasks) {
+                taskRemover(task1);
+                console.log(task1)
+              }
+              removeTask(task);
+              taskArr.splice(task, 1);
+              })
+         */
                 const priorityButton = document.createElement("button");
                 priorityButton.classList.add("priorityBtn");
                 
@@ -164,5 +167,13 @@ export function tabVisualizer(arrayTask) {
              });        
 
 }
-console.log(taskArr)
+/*taskDone.addEventListener('change', () => {
+        doneTasks.push()
+        for(let task of doneTasks) {
+            taskRemover(task);
+        }
+        removeTask(newTask);
+        taskArr.splice(newTask, 1);
+    })
+        */
 }

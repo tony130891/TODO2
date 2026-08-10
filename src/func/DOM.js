@@ -107,12 +107,10 @@ if(newTask.priority == 'low') {
 
      taskDone.addEventListener('change', () => {
         newTask.checklist = true;
-        console.log(newTask)
-        console.log('im on the taskVis funct')
-        taskRemover(newTask);
         doneTasks.push(newTask)
-        taskArr.splice(newTask, 1);
+        taskRemover(newTask);
         removeTask(newTask);
+        taskArr.splice(newTask, 1);
     })
 
        
@@ -151,6 +149,17 @@ if(newTask.priority == 'low') {
             dropdownContent.appendChild(labelMedium)
             dropdownContent.appendChild(priorityMedium);
 
+            const priorityLow = document.createElement('input');
+            priorityLow.type = 'radio';
+            priorityLow.name = 'priority';
+            priorityLow.value = 'low';
+            priorityLow.id = 'prioritylow';
+
+            const labelLow = document.createElement("label");
+            labelLow.textContent = "low";
+            dropdownContent.appendChild(labelLow)
+            dropdownContent.appendChild(priorityLow);
+
             priorityButton.addEventListener('click', () => {
             priorityChanger();
             })
@@ -178,13 +187,12 @@ if(newTask.priority == 'low') {
       editBtn.textContent = "Edit";
     }
      });
-     console.log(taskArr)
     };
 
 export function taskRemover(task) {
-            const divEl = document.querySelector(`[data-name="${task.title}"]`);
-    
-            return divEl.remove()   
-        }
+    const div = document.querySelector(`[data-name="${task.title}"]`);
+
+    div.remove()
+}   
 
 export const taskArr = [];
