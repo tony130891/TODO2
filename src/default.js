@@ -108,15 +108,11 @@ if(body.classList.contains('darkTheme')) {
 }
 })
 
-// revisa todos los arrays, si todaytask tiene 1 elemento, aplica pageload en ese array
-// pageload va a agregar el objeto en la pagina y luego lo borra del array
-
-
 const priorityButton = document.querySelector('.priorityBtn');
 
 
 /*priorityButton.addEventListener('click', () => {
-    console.log('im a working or not?')
+    console.log('am i working or not?')
     priorityChanger();
 })
     */

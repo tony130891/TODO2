@@ -120,25 +120,36 @@ export function tabVisualizer(arrayTask) {
                     priorityHigh.value = 'high';
                     priorityHigh.id = 'priorityhigh'
                     
-                    const labelHigh = document.createElement("label");
-                    labelHigh.textContent = "high";
-                    dropdownContent.appendChild(labelHigh)
-                    dropdownContent.appendChild(priorityHigh);
-        
-                     const priorityMedium = document.createElement('input');
-                    priorityMedium.type = 'radio';
-                    priorityMedium.name = 'priority';
-                    priorityMedium.value = 'medium';
-                    priorityMedium.id = 'prioritymedium'
+                                const labelHigh = document.createElement("label");
+                                labelHigh.textContent = "high";
+                                dropdownContent.appendChild(labelHigh)
+                                dropdownContent.appendChild(priorityHigh);
                     
-                    const labelMedium = document.createElement("label");
-                    labelMedium.textContent = "medium";
-                    dropdownContent.appendChild(labelMedium)
-                    dropdownContent.appendChild(priorityMedium);
-        
-                    priorityButton.addEventListener('click', () => {
-                    priorityChanger();
-                    })
+                                 const priorityMedium = document.createElement('input');
+                                priorityMedium.type = 'radio';
+                                priorityMedium.name = 'priority';
+                                priorityMedium.value = 'medium';
+                                priorityMedium.id = 'prioritymedium'
+                                
+                                const labelMedium = document.createElement("label");
+                                labelMedium.textContent = "medium";
+                                dropdownContent.appendChild(labelMedium)
+                                dropdownContent.appendChild(priorityMedium);
+                    
+                                const priorityLow = document.createElement('input');
+                                priorityLow.type = 'radio';
+                                priorityLow.name = 'priority';
+                                priorityLow.value = 'low';
+                                priorityLow.id = 'prioritylow';
+                    
+                                const labelLow = document.createElement("label");
+                                labelLow.textContent = "low";
+                                dropdownContent.appendChild(labelLow)
+                                dropdownContent.appendChild(priorityLow);
+                    
+                                priorityButton.addEventListener('click', () => {
+                                priorityChanger();
+                                })
         
                 const editBtn = document.createElement('button');
                 editBtn.textContent = "Edit";
