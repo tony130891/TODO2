@@ -53,6 +53,7 @@ const editable = document.querySelector('.editBtn');
 firstLoad(homeTab);
 retrieveTasks();
 
+
 taskAdder.addEventListener('click', () => {
  dialog.showModal();
 })
@@ -72,27 +73,27 @@ storageTasks()
 })
 
 todayTab.addEventListener('click', () => {
-    pageloader(todayTab);
-    taskVisualizerToday();
+    firstLoad(todayTab);
+    tabVisualizer(todayTasks);
 })
 
 doneTab.addEventListener('click', () => {
-    pageloader(doneTab);
+    firstLoad(doneTab);
     taskVisualizerDone()
 })
 
 tomorrowTab.addEventListener('click', () => {
-    pageloader(tomorrowTab);
-    taskVisualizerTomorrow();
+    firstLoad(tomorrowTab);
+    tabVisualizer(tomorrowTasks);
 })
 
 soonTab.addEventListener('click', () => {
-    pageloader(soonTab);
-    taskVisualizerSoon();
+    firstLoad(soonTab);
+    tabVisualizer(soonTasks);
 })
 
 homeTab.addEventListener('click', () => {
-    pageloader(homeTab);
+    firstLoad(homeTab);
     tabVisualizer(taskArr);
 })
 
@@ -107,6 +108,8 @@ if(body.classList.contains('darkTheme')) {
 }
 })
 
+// revisa todos los arrays, si todaytask tiene 1 elemento, aplica pageload en ese array
+// pageload va a agregar el objeto en la pagina y luego lo borra del array
 
 
 const priorityButton = document.querySelector('.priorityBtn');

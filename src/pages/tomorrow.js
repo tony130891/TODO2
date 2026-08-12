@@ -2,8 +2,8 @@ import { taskArr, taskRemover, taskVisualizer } from '../func/DOM.js';
 export const tomorrowTasks = [];
 const main = document.querySelector(".main");
 
-export function taskVisualizerTomorrow() {
-  for (let tasks of tomorrowTasks) {
+export function taskVisualizerTomorrow(arrayTask) {
+  for (let tasks of arrayTask) {
     const div = document.createElement("div");
     div.classList.add("project");
     div.setAttribute("data-name", tasks.title);
@@ -17,5 +17,9 @@ export function taskVisualizerTomorrow() {
     para.classList.add("hiddenP");
     para.textContent = `${tasks.description}`;
     h2.appendChild(para);
+
+     tasks.checklist = true;
+     taskRemover(tasks);
   }
+  console.log(tomorrowTasks)
 }

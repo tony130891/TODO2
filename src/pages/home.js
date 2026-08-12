@@ -9,7 +9,6 @@ import { removeTask } from '../func/editFunc.js';
 
 const main = document.querySelector('.main');
 
-
 export function tabVisualizer(arrayTask) {
     for(let task of arrayTask) {
         const div = document.createElement('div');
@@ -53,7 +52,7 @@ export function tabVisualizer(arrayTask) {
             div1.appendChild(duedate);
         
             //TOADD: TAB
-            switch (true) {
+           /* switch (true) {
             case remainingDate.includes("minutes") ||
               remainingDate.includes("minute") ||
               remainingDate.includes("hours") ||
@@ -67,7 +66,7 @@ export function tabVisualizer(arrayTask) {
               tomorrowTasks.push(task);
               break;
           }
-        
+          */
             const divCheck = document.createElement('div');
             para.appendChild(divCheck);
             divCheck.classList.add('done')
@@ -91,18 +90,17 @@ export function tabVisualizer(arrayTask) {
               }
               
               //const taskDone = document.querySelector('.Btndone');
-              /*taskDone.addEventListener('change', () => {
+              taskDone.addEventListener('change', () => {
                 task.checklist = true;
                 doneTasks.push(task)
-                console.log(doneTasks)
-                 for(let task1 of doneTasks) {
-                taskRemover(task1);
-                console.log(task1)
-              }
+                taskRemover(task);
               removeTask(task);
               taskArr.splice(task, 1);
+              tomorrowTasks.splice(task, 1);
+              todayTasks.splice(task, 1);
+              soonTasks.splice(task, 1);
               })
-         */
+         
                 const priorityButton = document.createElement("button");
                 priorityButton.classList.add("priorityBtn");
                 

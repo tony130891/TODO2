@@ -60,6 +60,7 @@ function taskRender(taskrender) {
               remainingDate.includes("minute") ||
               remainingDate.includes("hours") ||
               remainingDate.includes("hour"):
+              // apply taskRender in todaypage
               todayTasks.push(taskrender);
               break;
             case remainingDate.includes("days"):
@@ -144,6 +145,7 @@ export function retrieveTasks() {
       task = new TaskCreator(task.title, task.description, task.dueDate, task.priority, task.checklist);
       taskArr.push(task)
       taskRender(task)
+      console.log(taskArr)
     }
   } else {
     console.log("No data in local storage");

@@ -17,5 +17,15 @@ export function taskVisualizerSoon() {
           para.classList.add('hiddenP')
           para.textContent = `${tasks.description}`;
           h2.appendChild(para);
+
+          soonTasks.splice(tasks, 1)
           }
+          console.log(soonTasks)
 }
+
+// i click the btn
+// reads the objects in the array
+// apply the objects to the page
+// if the object is already inside the page, dont do anything
+// create a funct that only shows the object, and another that add them to the page
+// taskVisual is the one adding

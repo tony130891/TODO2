@@ -111,6 +111,9 @@ if(newTask.priority == 'low') {
         taskRemover(newTask);
         removeTask(newTask);
         taskArr.splice(newTask, 1);
+        tomorrowTasks.splice(newTask, 1);
+        todayTasks.splice(newTask, 1);
+        soonTasks.splice(newTask, 1);
     })
 
        
