@@ -51,22 +51,21 @@ export function tabVisualizer(arrayTask) {
             duedate.textContent = `${remainingDate}`
             div1.appendChild(duedate);
         
-            //TOADD: TAB
-           /* switch (true) {
-            case remainingDate.includes("minutes") ||
-              remainingDate.includes("minute") ||
-              remainingDate.includes("hours") ||
-              remainingDate.includes("hour"):
-              todayTasks.push(task);
-              break;
-            case remainingDate.includes("days"):
-              soonTasks.push(task);
-              break;
-            case remainingDate.includes("day"):
-              tomorrowTasks.push(task);
-              break;
-          }
-          */
+    /*         switch (true) {
+    case remainingDate.includes("minutes") ||
+      remainingDate.includes("minute") ||
+      remainingDate.includes("hours") ||
+      remainingDate.includes("hour"):
+      todayTasks.push(task);
+      break;
+    case remainingDate.includes("days"):
+      soonTasks.push(task);
+      break;
+    case remainingDate.includes("day"):
+      tomorrowTasks.push(task);
+      break;
+  }*/
+            
             const divCheck = document.createElement('div');
             para.appendChild(divCheck);
             divCheck.classList.add('done')
@@ -96,9 +95,9 @@ export function tabVisualizer(arrayTask) {
                 taskRemover(task);
               removeTask(task);
               taskArr.splice(task, 1);
-              tomorrowTasks.splice(task, 1);
-              todayTasks.splice(task, 1);
-              soonTasks.splice(task, 1);
+              if(todayTasks.includes(task)) { todayTasks.splice(task, 1);};
+              if(tomorrowTasks.includes(task)) { tomorrowTasks.splice(task, 1);};
+              if(soonTasks.includes(task)) { soonTasks.splice(task, 1); };
               })
          
                 const priorityButton = document.createElement("button");

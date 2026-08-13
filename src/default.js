@@ -112,7 +112,6 @@ const priorityButton = document.querySelector('.priorityBtn');
 
 
 /*priorityButton.addEventListener('click', () => {
-    console.log('am i working or not?')
     priorityChanger();
 })
     */
