@@ -5,6 +5,7 @@ import { todayTasks } from "../pages/today.js";
 import { tomorrowTasks } from "../pages/tomorrow.js";
 import { soonTasks } from "../pages/soon.js";
 import { doneTasks, taskVisualizerDone } from '../pages/done.js';
+import { priorityChanger } from './priorityFunc.js';
 
 const main = document.querySelector('.main');
 const doneTab = document.querySelector('.done');
@@ -108,8 +109,54 @@ function taskRender(taskrender) {
         
         
                 const priorityButton = document.createElement("button");
-                priorityButton.classList.add("priorityBtn");
-                div2.appendChild(priorityButton);
+                 priorityButton.classList.add("priorityBtn");
+                                
+                                const dropdown = document.createElement('div');
+                                dropdown.classList.add('dropdown');
+                                div2.appendChild(dropdown);
+                                dropdown.appendChild(priorityButton)
+                        
+                                const dropdownContent = document.createElement('div');
+                                dropdownContent.classList.add('dropdown-content');
+                                dropdownContent.id = 'myDropdown';
+                                dropdown.appendChild(dropdownContent);
+                        
+                                 const priorityHigh = document.createElement('input');
+                                    priorityHigh.type = 'radio';
+                                    priorityHigh.name = 'priority';
+                                    priorityHigh.value = 'high';
+                                    priorityHigh.id = 'priorityhigh'
+                                    
+                                                const labelHigh = document.createElement("label");
+                                                labelHigh.textContent = "high";
+                                                dropdownContent.appendChild(labelHigh)
+                                                dropdownContent.appendChild(priorityHigh);
+                                    
+                                                 const priorityMedium = document.createElement('input');
+                                                priorityMedium.type = 'radio';
+                                                priorityMedium.name = 'priority';
+                                                priorityMedium.value = 'medium';
+                                                priorityMedium.id = 'prioritymedium'
+                                                
+                                                const labelMedium = document.createElement("label");
+                                                labelMedium.textContent = "medium";
+                                                dropdownContent.appendChild(labelMedium)
+                                                dropdownContent.appendChild(priorityMedium);
+                                    
+                                                const priorityLow = document.createElement('input');
+                                                priorityLow.type = 'radio';
+                                                priorityLow.name = 'priority';
+                                                priorityLow.value = 'low';
+                                                priorityLow.id = 'prioritylow';
+                                    
+                                                const labelLow = document.createElement("label");
+                                                labelLow.textContent = "low";
+                                                dropdownContent.appendChild(labelLow)
+                                                dropdownContent.appendChild(priorityLow);
+                                    
+                                                priorityButton.addEventListener('click', () => {
+                                                priorityChanger();
+                                                })
         
                 const editBtn = document.createElement('button');
                 editBtn.textContent = "Edit";

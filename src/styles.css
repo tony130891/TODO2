@@ -223,7 +223,7 @@ background-color: lightblue;
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
-      height: auto;
+    height: auto;
     display: flex;
     width: min-content;
     flex-direction: column;

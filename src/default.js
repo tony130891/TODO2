@@ -49,6 +49,7 @@ const tomorrowTab = document.querySelector('.tomorrow');
 const soonTab = document.querySelector('.soon');
 const doneTab = document.querySelector('.done');
 const editable = document.querySelector('.editBtn');
+const priorityButton = document.querySelector('.priorityBtn');
 
 firstLoad(homeTab);
 retrieveTasks();
@@ -108,10 +109,3 @@ if(body.classList.contains('darkTheme')) {
 }
 })
 
-const priorityButton = document.querySelector('.priorityBtn');
-
-
-/*priorityButton.addEventListener('click', () => {
-    priorityChanger();
-})
-    */
