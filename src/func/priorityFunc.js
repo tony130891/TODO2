@@ -1,36 +1,23 @@
+const dialog = document.querySelector('#todoDialog');
 
-export function priorityChanger() {
-    console.log('whats happening');
+export function priorityChanger(task) {
+    const priorityBtn = document.querySelector('.priorityBtn');
+    const dropdownContent = document.querySelector('#myDropdown')
+    const btnSubmit = document.querySelector('.radioSubmit');
 
-     const priorityBtn = document.querySelector('.priorityBtn');
-     const dropdownContent = document.querySelector('#myDropdown')
-     dropdownContent.classList.toggle("show");
-    /*
-
-    const priorityLow = document.createElement('input');
-    priorityLow.type = 'radio';
-    priorityLow.name = 'priority';
-    priorityLow.value = 'low';
-    priorityLow.id = 'prioritylow';
-
-    const labelLow = document.createElement("label");
-    labelLow.textContent = "low";
-   dropdownContent.appendChild(priorityMedium);
-    dropdownContent.appendChild(labelMedium);
-    dropdownContent.appendChild(priorityLow);
-    dropdownContent.appendChild(labelLow);   
+    dropdownContent.classList.toggle("show"); 
     
-   priorityBtn.appendChild(dropdownContent);
-   dropdownContent.appendChild(labelHigh)
-   dropdownContent.appendChild(priorityHigh);
-    const submitBtn = document.createElement('button');
-    submitBtn.textContent = 'change';
-    const cancelBtn = document.createElement('button');
-    cancelBtn.textContent = 'Cancel';
-
-    dropdownContent.appendChild(submitBtn);
-    dropdownContent.appendChild(cancelBtn);
-    const form = document.querySelector('.form-group');
-    form.style.display = 'block';
-*/
+    btnSubmit.addEventListener('click', () => {
+        // select the current value of the obj priority
+        const oldValue = dialog.querySelector('input[name="priority"]:checked');
+        //assign the current value by checking a radio button
+        const currentValue = document.querySelector('input[name="priority"]:checked');
+        
+        console.log(oldValue.value);
+        console.log(currentValue.value);
+        //change the previous value with the current one
+        
+        //change the label and colors
+    })
 }
+

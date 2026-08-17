@@ -163,8 +163,23 @@ if(newTask.priority == 'low') {
             dropdownContent.appendChild(labelLow)
             dropdownContent.appendChild(priorityLow);
 
+            const divBtn = document.createElement('div');
+            divBtn.classList.add('divradios');
+            dropdownContent.appendChild(divBtn)
+
+            const submitBtn = document.createElement('button');
+            submitBtn.classList.add('radioSubmit')
+            submitBtn.textContent = 'change';
+            submitBtn.style.backgroundColor = '#33f788';
+            const cancelBtn = document.createElement('button');
+            cancelBtn.classList.add('radioSubmit')
+            cancelBtn.textContent = 'Cancel';
+
+            divBtn.appendChild(submitBtn);
+            divBtn.appendChild(cancelBtn);
+
             priorityButton.addEventListener('click', () => {
-            priorityChanger();
+            priorityChanger(newTask);
             })
 
         const editBtn = document.createElement('button');

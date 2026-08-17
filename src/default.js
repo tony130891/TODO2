@@ -50,6 +50,7 @@ const soonTab = document.querySelector('.soon');
 const doneTab = document.querySelector('.done');
 const editable = document.querySelector('.editBtn');
 const priorityButton = document.querySelector('.priorityBtn');
+const btnSubmit = document.querySelector('.radioSubmit');
 
 firstLoad(homeTab);
 retrieveTasks();
@@ -108,4 +109,3 @@ if(body.classList.contains('darkTheme')) {
     toggleBtn.textContent = 'DARK';
 }
 })
-

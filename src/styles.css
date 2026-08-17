@@ -228,4 +228,11 @@ background-color: lightblue;
     width: min-content;
     flex-direction: column;
     align-items: center;
+    gap: 5px;
+
+}
+
+.divradios {
+    display: flex;
+    gap: 20px;
 }

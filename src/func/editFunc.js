@@ -96,67 +96,80 @@ function taskRender(taskrender) {
         
              taskDone.addEventListener('change', () => {
                 taskrender.checklist = true;
-                for(let task of taskArr) {
-                  if(task.checklist == true) {
-                        doneTasks.push(task)
-                        taskRemover(task.title)
-                        removeTask(task)
-                        taskArr.splice(task, 1);
-                    }
-                }
-                console.log(taskArr)
+                doneTasks.push(taskrender)
+                taskRemover(taskrender);
+              removeTask(taskrender);
+              taskArr.splice(taskrender, 1);
+              if(todayTasks.includes(taskrender)) { todayTasks.splice(taskrender, 1);};
+              if(tomorrowTasks.includes(taskrender)) { tomorrowTasks.splice(taskrender, 1);};
+              if(soonTasks.includes(taskrender)) { soonTasks.splice(taskrender, 1); };
             })
         
         
                 const priorityButton = document.createElement("button");
                  priorityButton.classList.add("priorityBtn");
                                 
-                                const dropdown = document.createElement('div');
-                                dropdown.classList.add('dropdown');
-                                div2.appendChild(dropdown);
-                                dropdown.appendChild(priorityButton)
+                const dropdown = document.createElement('div');
+                dropdown.classList.add('dropdown');
+                div2.appendChild(dropdown);
+                dropdown.appendChild(priorityButton)
                         
-                                const dropdownContent = document.createElement('div');
-                                dropdownContent.classList.add('dropdown-content');
-                                dropdownContent.id = 'myDropdown';
-                                dropdown.appendChild(dropdownContent);
-                        
-                                 const priorityHigh = document.createElement('input');
-                                    priorityHigh.type = 'radio';
-                                    priorityHigh.name = 'priority';
-                                    priorityHigh.value = 'high';
-                                    priorityHigh.id = 'priorityhigh'
+                const dropdownContent = document.createElement('div');
+                dropdownContent.classList.add('dropdown-content');
+                dropdownContent.id = 'myDropdown';
+                dropdown.appendChild(dropdownContent);
+        
+                const priorityHigh = document.createElement('input');
+                priorityHigh.type = 'radio';
+                priorityHigh.name = 'priority';
+                priorityHigh.value = 'high';
+                priorityHigh.id = 'priorityhigh'
                                     
-                                                const labelHigh = document.createElement("label");
-                                                labelHigh.textContent = "high";
-                                                dropdownContent.appendChild(labelHigh)
-                                                dropdownContent.appendChild(priorityHigh);
-                                    
-                                                 const priorityMedium = document.createElement('input');
-                                                priorityMedium.type = 'radio';
-                                                priorityMedium.name = 'priority';
-                                                priorityMedium.value = 'medium';
-                                                priorityMedium.id = 'prioritymedium'
+                const labelHigh = document.createElement("label");
+                labelHigh.textContent = "high";
+                dropdownContent.appendChild(labelHigh)
+                dropdownContent.appendChild(priorityHigh);
+                            
+                const priorityMedium = document.createElement('input');
+                priorityMedium.type = 'radio';
+                priorityMedium.name = 'priority';
+                priorityMedium.value = 'medium';
+                priorityMedium.id = 'prioritymedium'
                                                 
-                                                const labelMedium = document.createElement("label");
-                                                labelMedium.textContent = "medium";
-                                                dropdownContent.appendChild(labelMedium)
-                                                dropdownContent.appendChild(priorityMedium);
+                const labelMedium = document.createElement("label");
+                labelMedium.textContent = "medium";
+                dropdownContent.appendChild(labelMedium)
+                dropdownContent.appendChild(priorityMedium);
                                     
-                                                const priorityLow = document.createElement('input');
-                                                priorityLow.type = 'radio';
-                                                priorityLow.name = 'priority';
-                                                priorityLow.value = 'low';
-                                                priorityLow.id = 'prioritylow';
+                const priorityLow = document.createElement('input');
+                priorityLow.type = 'radio';
+                priorityLow.name = 'priority';
+                priorityLow.value = 'low';
+                priorityLow.id = 'prioritylow';
                                     
-                                                const labelLow = document.createElement("label");
-                                                labelLow.textContent = "low";
-                                                dropdownContent.appendChild(labelLow)
-                                                dropdownContent.appendChild(priorityLow);
+                const labelLow = document.createElement("label");
+                labelLow.textContent = "low";
+                 dropdownContent.appendChild(labelLow)
+                dropdownContent.appendChild(priorityLow);
+
+              const divBtn = document.createElement('div');
+            divBtn.classList.add('divradios');
+            dropdownContent.appendChild(divBtn)
+
+            const submitBtn = document.createElement('button');
+            submitBtn.classList.add('radioSubmit')
+            submitBtn.textContent = 'change';
+            submitBtn.style.backgroundColor = '#33f788';
+            const cancelBtn = document.createElement('button');
+            cancelBtn.classList.add('radioSubmit')
+            cancelBtn.textContent = 'Cancel';
+
+            divBtn.appendChild(submitBtn);
+            divBtn.appendChild(cancelBtn);
                                     
-                                                priorityButton.addEventListener('click', () => {
-                                                priorityChanger();
-                                                })
+            priorityButton.addEventListener('click', () => {
+                   priorityChanger(taskrender);
+                  })
         
                 const editBtn = document.createElement('button');
                 editBtn.textContent = "Edit";
@@ -191,7 +204,7 @@ export function retrieveTasks() {
     for(let task of tasks) {
       task = new TaskCreator(task.title, task.description, task.dueDate, task.priority, task.checklist);
       taskArr.push(task)
-      taskRender(task)
+      taskRender(task)   
       console.log(taskArr)
     }
   } else {
