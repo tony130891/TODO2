@@ -15,7 +15,7 @@ export function storageTasks() {
 }
 
 
-function taskRender(taskrender) {
+export function taskRender(taskrender) {
 
        const div = document.createElement('div');
         div.classList.add('project');

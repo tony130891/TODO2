@@ -89,10 +89,10 @@ export function tabVisualizer(arrayTask) {
               }
               
               //const taskDone = document.querySelector('.Btndone');
-              taskDone.addEventListener('change', () => {
-                task.checklist = true;
-                doneTasks.push(task)
-                taskRemover(task);
+            taskDone.addEventListener('change', () => {
+              task.checklist = true;
+              doneTasks.push(task)
+              taskRemover(task);
               removeTask(task);
               taskArr.splice(task, 1);
               if(todayTasks.includes(task)) { todayTasks.splice(task, 1);};
